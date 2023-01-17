@@ -9,13 +9,13 @@ import java.util.List;
 
 public class ReadInput {
     public static List<String> readInput() {
-        File input = new File("D:\\Java\\Java_work\\Codeforces_task\\src\\Task2\\Input.txt");
+        File input = new File("D:\\Java\\Java_work\\Codeforces_task\\src\\Task3\\Input.txt");
         List<String> stringList = new ArrayList<>();
+        String line;
 
         try (BufferedReader bf = new BufferedReader(new FileReader(input))) {
-            int count = Integer.parseInt(bf.readLine());
-            for (int i = 0; i < count; i++) {
-                stringList.add(bf.readLine());
+            while ((line = bf.readLine()) != null) {
+                stringList.add(line);
             }
         } catch (IOException e) {
             System.out.println("Не удалось получить вводные данные");

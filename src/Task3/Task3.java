@@ -5,24 +5,24 @@ import java.util.List;
 public class Task3 {
     public static void main(String[] args) {
         List<String> list = ReadInput.readInput();
-        counter(list);
+        System.out.println(counter(list));
     }
 
-    public static void counter(List<String> list) {
-        int counter = 0, result = 0;
+    public static int counter(List<String> list) {
+        int result = 0, targetParticipant, passingScore;
 
-        for (String s : list) {
-            for (String temp : s.split(" ")) {
-                counter += Integer.parseInt(temp);
-            }
-            if (counter > 1) {
-                result++;
-                counter = 0;
-            } else {
-                counter = 0;
-            }
+        String[] temp1 = list.get(0).split(" ");
+        targetParticipant = Integer.parseInt(temp1[1]);
+
+        String[] temp2 = list.get(1).split(" ");
+        passingScore = Integer.parseInt(temp2[targetParticipant - 1]);
+
+        if (passingScore < 1) return 0;
+
+        for (String s : temp2) {
+            if (Integer.parseInt(s) >= passingScore) result++;
         }
 
-        System.out.println(result);
+        return result;
     }
 }
