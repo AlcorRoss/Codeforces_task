@@ -1,6 +1,6 @@
 package Task9;
 
-public class Task8 {
+public class Task9 {
     public static void main(String[] args) {
         String line = ReadInput.readInput();
         capitalization(line);
