@@ -11,11 +11,16 @@ public class ReadInput_1 {
     public static List<Integer> readInput() {
         File input = new File("D:\\Java\\Java_work\\Codeforces_task\\src\\Task6\\Input.txt");
         List<Integer> integerList = new ArrayList<>();
+        String line;
         int temp;
 
         try (BufferedReader bf = new BufferedReader(new FileReader(input))) {
             while ((temp = bf.read()) != -1) {
-                integerList.add(temp);
+                line = (String) String.valueOf(Character.toChars(temp));
+                if (!line.equals(" ") && !line.equals("\n\r")) {
+                    temp = Integer.parseInt(line);
+                    integerList.add(temp);
+                }
             }
         } catch (IOException e) {
             System.out.println("Не удалось получить вводные данные");
