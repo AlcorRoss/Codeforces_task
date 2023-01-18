@@ -16,8 +16,8 @@ public class ReadInput_1 {
 
         try (BufferedReader bf = new BufferedReader(new FileReader(input))) {
             while ((temp = bf.read()) != -1) {
-                line = (String) String.valueOf(Character.toChars(temp));
-                if (!line.equals(" ") && !line.equals("\n\r")) {
+                line = String.valueOf(Character.toChars(temp));
+                if (line.equals("1") || line.equals("0")) {
                     temp = Integer.parseInt(line);
                     integerList.add(temp);
                 }

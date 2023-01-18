@@ -20,8 +20,6 @@ public class Task6_1 {
         }
 
         result = Math.abs(line - 2) + Math.abs(column - 2);
-        System.out.println(line);
-        System.out.println(column);
         System.out.println(result);
     }
 }
