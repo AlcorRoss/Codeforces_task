@@ -1,25 +1,23 @@
 package Task0011;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Task11 {
     public static void main(String[] args) {
-        List<Integer> list = ReadInput.readInput();
-        stepCounter(list);
+        String line = ReadInput.readInput();
+        counter(line);
     }
 
-    public static void stepCounter(List<Integer> list) {
-        int line = 0, column = 0, result;
+    public static void counter(String line) {
+        List<Character> characterList = new ArrayList<>();
+        char[] chars = line.toCharArray();
 
-        for (int i = 0; i < 25; i++) {
-            if (list.get(i) == 1) {
-                line = i / 5;
-                column = i % 5;
-                break;
-            }
+        characterList.add(chars[0]);
+        for (int i = 1; i < chars.length; i++) {
+            if (chars[i - 1] != chars[i]) characterList.add(chars[i]);
         }
 
-        result = Math.abs(line - 2) + Math.abs(column - 2);
-        System.out.println(result);
+        System.out.println(chars.length - characterList.size());
     }
 }

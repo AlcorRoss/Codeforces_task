@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class ReadInput {
     public static String readInput() {
-        File input = new File("D:\\Java\\Java_work\\Codeforces_task\\src\\Task9\\Input.txt");
+        File input = new File("D:\\Java\\Java_work\\Codeforces_task\\src\\Task0009\\Input.txt");
         String line = null;
 
         try (BufferedReader bf = new BufferedReader(new FileReader(input))) {

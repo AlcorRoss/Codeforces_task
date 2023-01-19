@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ReadInput {
     public static List<String> readInput() {
-        File input = new File("D:\\Java\\Java_work\\Codeforces_task\\src\\Task3\\Input.txt");
+        File input = new File("D:\\Java\\Java_work\\Codeforces_task\\src\\Task0003\\Input.txt");
         List<String> stringList = new ArrayList<>();
         String line;
 
