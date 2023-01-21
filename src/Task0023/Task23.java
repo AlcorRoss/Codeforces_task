@@ -26,6 +26,8 @@ public class Task23 {
                 result++;
             } else if (groups.get(i) == 0) {
                 break;
+            } else if (groups.get(i) != 0 && i == groups.size() - 1) {
+                result++;
             } else {
                 for (int j = groups.size() - 1; j > i; j--) {
                     if (groups.get(j) + groups.get(i) > 4) {
