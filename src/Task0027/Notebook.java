@@ -13,7 +13,8 @@ public record Notebook(int price, int quality) implements Comparable<Notebook> {
     public static String notebookCompare(List<Notebook> notebookList) {
         Collections.sort(notebookList);
         for (int i = 0; i < notebookList.size() - 1; i++) {
-            if (notebookList.get(i).quality() > notebookList.get(i + 1).quality()) {
+            if (notebookList.get(i).quality() > notebookList.get(i + 1).quality()
+                    && notebookList.get(i).price < notebookList.get(i + 1).price) {
                 return "Happy Alex";
             }
         }
