@@ -27,7 +27,7 @@ public class Task0033 {
             } else if (tempArray[0] <= tempSet.size() - 1) {
                 results[i] = tempArray[0];
             } else {
-                results[i] = Math.min(tempArray[0], tempSet.size()) - 1;
+                results[i] = tempArray[0] - 1;
             }
 
             tempSet.clear();
