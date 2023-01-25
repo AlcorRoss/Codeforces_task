@@ -23,13 +23,12 @@ public class Task0035 {
         while (integerList.size() >= 2) {
             purpose = m - integerList.get(0);
             integerList.remove(0);
-            if (integerList.contains(purpose)) {
-                counter++;
-                for (int i = 0; i < integerList.size(); i++) {
-                    if (integerList.get(i) == purpose) {
-                        integerList.remove(i);
-                        break;
-                    }
+
+            for (int i = 0; i < integerList.size(); i++) {
+                if (integerList.get(i) == purpose) {
+                    counter++;
+                    integerList.remove(i);
+                    break;
                 }
             }
         }
