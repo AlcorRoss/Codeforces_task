@@ -40,11 +40,20 @@ public class Task0034 {
     }
 
     public static String pairSearch(List<Integer> even, List<Integer> odd) {
-        for (int number : even) {
-            for (int purpose : odd) {
-                if (Math.abs(number - purpose) == 1) return "YES";
+        if (even.size() > odd.size()) {
+            for (int number : even) {
+                for (int purpose : odd) {
+                    if (Math.abs(number - purpose) == 1) return "YES";
+                }
+            }
+        } else {
+            for (int number : odd) {
+                for (int purpose : even) {
+                    if (Math.abs(number - purpose) == 1) return "YES";
+                }
             }
         }
+
         return "NO";
     }
 }
