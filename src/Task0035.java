@@ -7,12 +7,18 @@ public class Task0035 {
         Scanner in = new Scanner(System.in);
         List<Integer> integerList = new LinkedList<>();
         int purpose, counter = 0;
-        int m = in.nextInt();
+        String line;
+        int m;
 
-
-        while (in.hasNext()) {
-            integerList.add(in.nextInt());
+        System.out.println("Введите массив");
+        line = in.nextLine();
+        String[] temp = line.split(" ");
+        for (String s : temp) {
+            integerList.add(Integer.parseInt(s));
         }
+
+        System.out.println("Введите m");
+        m = in.nextInt();
 
         while (integerList.size() >= 2) {
             purpose = m - integerList.get(0);
