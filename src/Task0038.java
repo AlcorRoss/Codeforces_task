@@ -16,7 +16,13 @@ public class Task0038 {
                 continue;
             }
 
-            if (diamond % 2 == stick % 2) {
+            if (diamond % 2 == 1) {
+                maxShovel = Math.min(diamond / 2 + 1, stick / 2);
+                maxSword = Math.min((diamond - maxShovel) / 2, stick - maxShovel);
+            } else if (stick % 2 == 1) {
+                maxSword = Math.min(stick / 2 + 1, diamond / 2);
+                maxShovel = Math.min((stick - maxSword) / 2, diamond - maxSword);
+            } else {
                 maxShovel = Math.min(stick / 2, diamond);
                 maxSword = Math.min(stick, diamond / 2);
 
@@ -28,13 +34,6 @@ public class Task0038 {
                 continue;
             }
 
-            if (diamond % 2 == 1) {
-                maxShovel = Math.min(diamond / 2 + 1, stick / 2);
-                maxSword = Math.min((diamond - maxShovel) / 2, stick - maxShovel);
-            } else {
-                maxSword = Math.min(stick / 2 + 1, diamond / 2);
-                maxShovel = Math.min((stick - maxSword) / 2, diamond - maxSword);
-            }
             results[i] = maxShovel + maxSword;
         }
 
