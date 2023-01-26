@@ -1,12 +1,10 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Task0035 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        List<Integer> integerList = new LinkedList<>();
-        int purpose, counter = 0;
+        int counter = 0;
+        Map<Integer, Integer> valuesMap = new HashMap<>();
         String line;
         int m;
 
@@ -14,23 +12,18 @@ public class Task0035 {
         line = in.nextLine();
         String[] temp = line.split(" ");
         for (String s : temp) {
-            integerList.add(Integer.parseInt(s));
+            valuesMap.merge(Integer.parseInt(s), 1, Integer::sum);
         }
 
         System.out.println("Введите m");
         m = in.nextInt();
 
-        while (integerList.size() >= 2) {
-            purpose = m - integerList.get(0);
-            integerList.remove(0);
-
-            for (int i = 0; i < integerList.size(); i++) {
-                if (integerList.get(i) == purpose) {
-                    counter++;
-                    integerList.remove(i);
-                    break;
-                }
+        for (int i : valuesMap.keySet()) {
+            if (valuesMap.get(i) != 0 && valuesMap.containsKey(m - i) && valuesMap.get(m - i) != 0) {
+                counter += Math.min(valuesMap.get(i), valuesMap.get(m - i));
+                valuesMap.put(m - i, 0);
             }
+            valuesMap.put(i, 0);
         }
 
         System.out.println(counter);
