@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class Task0038 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        long stick, diamond, maxShovel, maxSword;
+        int stick, diamond, maxShovel, maxSword;
         int quantityOfTests = in.nextInt();
-        long[] results = new long[quantityOfTests];
+        int[] results = new int[quantityOfTests];
 
         for (int i = 0; i < quantityOfTests; i++) {
             stick = in.nextInt();
@@ -38,7 +38,7 @@ public class Task0038 {
             results[i] = maxShovel + maxSword;
         }
 
-        for (long result : results) {
+        for (int result : results) {
             System.out.println(result);
         }
 
