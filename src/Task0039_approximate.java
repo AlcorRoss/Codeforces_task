@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Task0039 {
+public class Task0039_approximate {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int quantityOfValues, maxValue, maxIndex, result, temp, indexTemp;
