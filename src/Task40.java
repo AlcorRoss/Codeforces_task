@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task40 {
@@ -37,10 +36,6 @@ public class Task40 {
                 break;
             }
         }
-
-        System.out.println(Arrays.toString(streetLength));
-        System.out.println(beginRange);
-        System.out.println(endRange);
 
         if (maxRange / 2 >= Math.max(beginRange, endRange)) {
             System.out.println((double) maxRange / 2);
