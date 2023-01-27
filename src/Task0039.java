@@ -26,10 +26,11 @@ public class Task0039 {
                         temp += values[temp];
                     } else {
                         maxResult += values[temp];
+                        if (result < maxResult) result = maxResult;
                         break;
                     }
+                    if (result < maxResult) result = maxResult;
                 }
-                if (result < maxResult) result = maxResult;
             }
             results[i] = result;
         }
