@@ -1,9 +1,10 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task40 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int maxRange = 0, temp = 0, beginRange = -1, endRange = -1;
+        int maxRange = 0, temp = 0, beginRange = 0, endRange = 0;
         int quantityOfLight = in.nextInt();
         int[] streetLength = new int[in.nextInt() + 1];
 
@@ -25,7 +26,6 @@ public class Task40 {
             if (j == 0) {
                 beginRange++;
             } else {
-                beginRange = Math.max(beginRange, 0);
                 break;
             }
         }
@@ -34,10 +34,13 @@ public class Task40 {
             if (streetLength[i] == 0) {
                 endRange++;
             } else {
-                endRange = Math.max(endRange, 0);
                 break;
             }
         }
+
+        System.out.println(Arrays.toString(streetLength));
+        System.out.println(beginRange);
+        System.out.println(endRange);
 
         if (maxRange / 2 >= Math.max(beginRange, endRange)) {
             System.out.println((double) maxRange / 2);
