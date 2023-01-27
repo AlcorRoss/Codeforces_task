@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Task40 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int maxRange = 0, temp = 0, beginIndex = 0;
+        int maxRange = 0, temp = 0, beginRange = -1, endRange = -1;
         int quantityOfLight = in.nextInt();
         int[] streetLength = new int[in.nextInt() + 1];
 
@@ -11,20 +11,38 @@ public class Task40 {
             streetLength[in.nextInt()] = 1;
         }
 
-        for (int i = 0; i < streetLength.length; i++) {
-            if (streetLength[i] == 0) {
+        for (int j : streetLength) {
+            if (j == 0) {
                 temp++;
+                maxRange = Math.max(temp, maxRange);
             } else {
-                if (temp > maxRange) beginIndex = i - temp;
                 maxRange = Math.max(temp, maxRange);
                 temp = 0;
             }
         }
 
-        if (beginIndex != 0 && beginIndex + maxRange != streetLength.length - 1) {
+        for (int j : streetLength) {
+            if (j == 0) {
+                beginRange++;
+            } else {
+                beginRange = Math.max(beginRange, 0);
+                break;
+            }
+        }
+
+        for (int i = streetLength.length - 1; i >= 0; i--) {
+            if (streetLength[i] == 0) {
+                endRange++;
+            } else {
+                endRange = Math.max(endRange, 0);
+                break;
+            }
+        }
+
+        if (maxRange / 2 >= Math.max(beginRange, endRange)) {
             System.out.println((double) maxRange / 2);
         } else {
-            System.out.println((double) maxRange);
+            System.out.println((double) Math.max(beginRange, endRange));
         }
     }
 }
