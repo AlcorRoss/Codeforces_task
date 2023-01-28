@@ -37,7 +37,7 @@ public class Task0040 {
             }
         }
 
-        if (maxRange / 2 >= Math.max(beginRange, endRange)) {
+        if ((double) maxRange / 2 >= Math.max(beginRange, endRange)) {
             System.out.println((double) maxRange / 2);
         } else {
             System.out.println((double) Math.max(beginRange, endRange));
