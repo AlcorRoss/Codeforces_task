@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Task40 {
+public class Task0040 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int maxRange = 0, temp = 0, beginRange = 0, endRange = 0;
