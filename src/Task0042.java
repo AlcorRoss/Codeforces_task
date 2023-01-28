@@ -17,17 +17,18 @@ public class Task0042 {
 
         for (int i = 0; i < numberOfValues; i++) {
             temp = in.nextInt();
-            if (boysMap.containsKey(temp) && boysMap.get(temp) != 0) {
-                boysMap.put(temp, boysMap.get(temp) - 1);
-                result++;
-            } else if (boysMap.containsKey(temp - 1) && boysMap.get(temp - 1) != 0) {
+            if (boysMap.containsKey(temp - 1) && boysMap.get(temp - 1) != 0) {
                 boysMap.put(temp - 1, boysMap.get(temp - 1) - 1);
                 result++;
             } else if (boysMap.containsKey(temp + 1) && boysMap.get(temp + 1) != 0) {
                 boysMap.put(temp + 1, boysMap.get(temp + 1) - 1);
                 result++;
+            } else if (boysMap.containsKey(temp) && boysMap.get(temp) != 0) {
+                boysMap.put(temp, boysMap.get(temp) - 1);
+                result++;
             }
         }
+
         System.out.println(result);
     }
 }
