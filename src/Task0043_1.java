@@ -17,7 +17,7 @@ public class Task0043_1 {
             x = 1;
             y = 1;
 
-            while (x <= 20) {
+            while (x <= 100) {
 
                 if (memory.containsKey(x) && memory.get(x) == y || memory.containsKey(y) && memory.get(y) == x) {
                     y++;
@@ -35,7 +35,7 @@ public class Task0043_1 {
                     break;
                 }
 
-                if (y == 20) {
+                if (y == 100) {
                     x++;
                     y = 1;
                 }
