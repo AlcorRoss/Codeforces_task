@@ -16,7 +16,7 @@ public class Task0040_1 {
 
         oldPosition = lightsPosition.firstKey();
         for (int position : lightsPosition.keySet()) {
-            maxRange = Math.max(position - oldPosition - 1, maxRange);
+            maxRange = Math.max(position - oldPosition, maxRange);
             oldPosition = position;
         }
 
