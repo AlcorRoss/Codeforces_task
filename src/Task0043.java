@@ -5,7 +5,7 @@ public class Task0043 {
         Scanner in = new Scanner(System.in);
         int t = in.nextInt();
         boolean flag;
-        int x, y, counter = 0;
+        int x, y;
         double result = 0;
 
         for (int i = 0; i < t; i++) {
@@ -15,7 +15,6 @@ public class Task0043 {
 
             while (result != n) {
                 result = (Math.pow(x, y) * y) + (Math.pow(y, x) * x);
-
 
                 if (x > n) {
                     System.out.println(-1);
