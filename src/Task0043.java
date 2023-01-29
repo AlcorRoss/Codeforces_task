@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Task0043 {
@@ -9,14 +11,13 @@ public class Task0043 {
         double result = 0;
 
         for (int i = 0; i < t; i++) {
+            Map<Integer, Integer> memory = new HashMap<>();
             int n = in.nextInt();
             flag = true;
             x = y = 1;
             counter = 0;
 
             while (result != n) {
-                result = (Math.pow(x, y) * y) + (Math.pow(y, x) * x);
-
 
                 if (x >= n) {
                     System.out.println(-1);
@@ -31,8 +32,14 @@ public class Task0043 {
                     x -= 19;
                     counter = 0;
                 }
-                if ((Math.pow(x, y) * y) + (Math.pow(y, x) * x) == n) break;
 
+                if (memory.containsKey(x) && memory.get(x) == y || memory.containsKey(y) && memory.get(y) == x) {
+                    continue;
+                }
+
+                result = (Math.pow(x, y) * y) + (Math.pow(y, x) * x);
+                memory.put(x, y);
+                memory.put(y, x);
                 counter++;
             }
 
