@@ -19,7 +19,7 @@ public class Task0043 {
 
 
 
-                if (x >= n || y >= n) {
+                if (x >= n) {
                     System.out.println(-1);
                     flag = false;
                     break;
@@ -27,13 +27,12 @@ public class Task0043 {
 
                 if (counter < 19) {
                     x++;
-                    if ((Math.pow(x, y) * y) + (Math.pow(y, x) * x) == n) break;
                 } else {
                     y++;
                     x = y;
                     counter = 0;
-                    if ((Math.pow(x, y) * y) + (Math.pow(y, x) * x) == n) break;
                 }
+                if ((Math.pow(x, y) * y) + (Math.pow(y, x) * x) == n) break;
 
                 counter++;
             }
