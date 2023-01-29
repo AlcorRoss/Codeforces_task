@@ -18,7 +18,6 @@ public class Task0043 {
                 result = (Math.pow(x, y) * y) + (Math.pow(y, x) * x);
 
 
-
                 if (x >= n) {
                     System.out.println(-1);
                     flag = false;
@@ -29,7 +28,7 @@ public class Task0043 {
                     x++;
                 } else {
                     y++;
-                    x = y;
+                    x -= 19;
                     counter = 0;
                 }
                 if ((Math.pow(x, y) * y) + (Math.pow(y, x) * x) == n) break;
