@@ -11,24 +11,24 @@ public class Task0043 {
         for (int i = 0; i < t; i++) {
             int n = in.nextInt();
             flag = true;
-            x = y = 0;
+            x = y = 1;
 
             while (result != n) {
                 result = (Math.pow(x, y) * y) + (Math.pow(y, x) * x);
 
-                if (result > n || x > n || y > n) {
+
+                if (x > n) {
                     System.out.println(-1);
                     flag = false;
                     break;
                 }
 
-                if (counter == 0) {
+                if (y > n) {
                     x++;
-                    counter = 1;
-                } else if (counter == 1) {
-                    y++;
-                    counter = 0;
+                    y = 0;
                 }
+
+                y++;
             }
 
             if (flag) {
