@@ -26,7 +26,7 @@ public class Task0044_3 {
             if (memorizationMap.containsKey(temp)) {
                 System.out.println(memorizationMap.get(temp));
                 continue;
-            } else if (memorizationMap.lastKey() < temp) {
+            } else if (!memorizationMap.isEmpty() && memorizationMap.lastKey() < temp) {
                 mem = memorizationMap.get(memorizationMap.lastKey());
             }
 
