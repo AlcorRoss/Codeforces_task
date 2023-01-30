@@ -24,8 +24,9 @@ public class Task0044_2 {
                 continue;
             }
 
+            tempMem = temp;
+
             for (int j = 1; j < boxes.length; j++) {
-                tempMem = temp;
                 temp -= boxes[j];
                 if (temp <= 0) {
                     System.out.println(j);
