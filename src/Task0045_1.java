@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class Task0045_1 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int units = 0, numberOfZero = 0, maxZero = -1, temp;
+        int maxZero = -1, units = 0, numberOfZero = 0, temp;
+        int numberOfValues = in.nextInt();
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < numberOfValues; i++) {
             temp = in.nextInt();
 
             if (temp == 0) {
