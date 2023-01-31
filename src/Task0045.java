@@ -5,17 +5,19 @@ public class Task0045 {
         Scanner in = new Scanner(System.in);
         int sum = 0, indexMax = 0, indexMin = 0, indexMaxReverse = 0, indexMinReverse = 0,
                 tempMax = Integer.MIN_VALUE, tempMin = Integer.MAX_VALUE, result = 0;
-        int[] values = new int[in.nextInt() + 1];
+        int[] values = new int[in.nextInt()];
         int[] sumFromBegin = new int[values.length];
         int[] sumFromEnd = new int[values.length];
 
-        for (int i = 1; i < values.length; i++) {
+        for (int i = 0; i < values.length; i++) {
             values[i] = in.nextInt();
         }
-        if (values.length == 2 && values[1] == 1) {
+        if (values.length == 1 && values[0] == 1) {
             System.out.println(0);
+        } else if (values.length == 1 && values[0] == 0) {
+            System.out.println(1);
         } else {
-            for (int i = 1; i < sumFromBegin.length; i++) {
+            for (int i = 0; i < sumFromBegin.length; i++) {
                 if (values[i] == 0) {
                     sum += 1;
                 } else {
@@ -29,7 +31,7 @@ public class Task0045 {
                 }
             }
 
-            for (int i = 1; i < indexMax; i++) {
+            for (int i = 0; i < indexMax; i++) {
                 if (sumFromBegin[i] < tempMin) {
                     tempMin = sumFromBegin[i];
                     indexMin = i;
@@ -40,7 +42,7 @@ public class Task0045 {
             tempMax = Integer.MIN_VALUE;
             tempMin = Integer.MAX_VALUE;
 
-            for (int i = sumFromEnd.length - 1; i > 1; i--) {
+            for (int i = sumFromEnd.length - 1; i >= 0; i--) {
                 if (values[i] == 0) {
                     sum += 1;
                 } else {
