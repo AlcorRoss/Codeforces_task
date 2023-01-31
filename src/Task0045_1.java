@@ -21,4 +21,3 @@ public class Task0045_1 {
         System.out.println(units + maxZero);
     }
 }
-
