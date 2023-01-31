@@ -5,17 +5,22 @@ public class Task0045 {
         Scanner in = new Scanner(System.in);
         int sum = 0, indexMax = 0, indexMin = 0, indexMaxReverse = 0, indexMinReverse = 0,
                 tempMax = Integer.MIN_VALUE, tempMin = Integer.MAX_VALUE, result = 0;
+        boolean flag = true;
         int[] values = new int[in.nextInt()];
         int[] sumFromBegin = new int[values.length];
         int[] sumFromEnd = new int[values.length];
 
         for (int i = 0; i < values.length; i++) {
             values[i] = in.nextInt();
+            if (values[i] == 0) flag = false;
         }
+
         if (values.length == 1 && values[0] == 1) {
             System.out.println(0);
         } else if (values.length == 1 && values[0] == 0) {
             System.out.println(1);
+        } else if (flag) {
+            System.out.println(values.length - 1);
         } else {
             for (int i = 0; i < sumFromBegin.length; i++) {
                 if (values[i] == 0) {
