@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Task0047 {
     public static void main(String[] args) {
@@ -9,19 +7,25 @@ public class Task0047 {
 
         for (int i = 0; i < numberOfTests; i++) {
             int numberOfValues = in.nextInt();
-            int[] values = new int[numberOfValues];
+            Integer[] values = new Integer[numberOfValues];
             List<Integer> sequenceFromPositive = new ArrayList<>();
             List<Integer> sequenceFromNegative = new ArrayList<>();
             long result;
             int tempPositive = 0, tempNegative = Integer.MIN_VALUE, firstPositiveIndex = 0, firstNegativeIndex = 0;
-
+            boolean flagPositive = true;
+            boolean flagNegative = true;
 
             for (int j = 0; j < numberOfValues; j++) {
                 values[j] = in.nextInt();
+
+                if (values[j] > 0) flagPositive = false;
+                if (values[j] < 0) flagNegative = false;
             }
 
-            if (values.length == 1) {
-                System.out.println(values[0]);
+            if (flagPositive && !flagNegative) {
+                System.out.println(Collections.max(Arrays.asList(values)));
+            } else if (!flagPositive && flagNegative) {
+                System.out.println(Collections.max(Arrays.asList(values)));
             } else {
 
                 //Finding the index of the first positive value.
@@ -96,6 +100,9 @@ public class Task0047 {
                         tempNegative = values[j];
                     }
                 }
+
+                System.out.println(sequenceFromPositive);
+                System.out.println(sequenceFromNegative);
 
                 if (sequenceFromPositive.size() > sequenceFromNegative.size()) {
                     result = sequenceSum(sequenceFromPositive);
