@@ -46,9 +46,9 @@ public class Task0047 {
             }
 
             //Finding the index of the first negative value
-            for (int value : values) {
-                if (value < 0) {
-                    firstNegativeIndex = value;
+            for (int j = 0; j < values.length; j++) {
+                if (values[j] < 0) {
+                    firstNegativeIndex = j;
                     break;
                 }
             }
