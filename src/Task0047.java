@@ -12,7 +12,7 @@ public class Task0047 {
             int[] values = new int[numberOfValues];
             List<Integer> sequenceFromPositive = new ArrayList<>();
             List<Integer> sequenceFromNegative = new ArrayList<>();
-            int tempPositive = 0, tempNegative = 0, result, firstPositiveIndex = 0, firstNegativeIndex = 0;
+            int tempPositive = 0, tempNegative = Integer.MIN_VALUE, result, firstPositiveIndex = 0, firstNegativeIndex = 0;
 
             for (int j = 0; j < numberOfValues; j++) {
                 values[j] = in.nextInt();
@@ -55,7 +55,8 @@ public class Task0047 {
                 }
             }
 
-            tempNegative = tempPositive = 0;
+            tempNegative = Integer.MIN_VALUE;
+            tempPositive = 0;
 
             // Finding the largest sequence from the first negative value.
             for (int j = firstNegativeIndex; j < values.length; j++) {
