@@ -17,7 +17,6 @@ public class Task0047 {
 
             for (int j = 0; j < numberOfValues; j++) {
                 values[j] = in.nextInt();
-
                 if (values[j] > 0) flagPositive = false;
                 if (values[j] < 0) flagNegative = false;
             }
@@ -25,7 +24,6 @@ public class Task0047 {
             if (flagPositive && !flagNegative || !flagPositive && flagNegative) {
                 System.out.println(Collections.max(Arrays.asList(values)));
             } else {
-
                 //Finding the index of the first positive value.
                 for (int j = 0; j < values.length; j++) {
                     if (values[j] > 0) {
