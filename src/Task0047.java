@@ -15,6 +15,7 @@ public class Task0047 {
             long result;
             int tempPositive = 0, tempNegative = Integer.MIN_VALUE, firstPositiveIndex = 0, firstNegativeIndex = 0;
 
+
             for (int j = 0; j < numberOfValues; j++) {
                 values[j] = in.nextInt();
             }
@@ -35,7 +36,10 @@ public class Task0047 {
                 for (int j = firstPositiveIndex; j < values.length; j++) {
                     if (values[j] > 0 && sequenceFromPositive.size() % 2 == 0) {
                         tempPositive = Math.max(tempPositive, values[j]);
-                        if (j == values.length - 1) sequenceFromPositive.add(tempPositive);
+                        if (j == values.length - 1) {
+                            sequenceFromPositive.add(tempPositive);
+                            break;
+                        }
                     } else if (values[j] < 0 && sequenceFromPositive.size() % 2 == 0) {
                         sequenceFromPositive.add(tempPositive);
                         tempPositive = 0;
@@ -44,7 +48,10 @@ public class Task0047 {
 
                     if (values[j] < 0 && sequenceFromPositive.size() % 2 != 0) {
                         tempNegative = Math.max(tempNegative, values[j]);
-                        if (j == values.length - 1) sequenceFromPositive.add(tempNegative);
+                        if (j == values.length - 1) {
+                            sequenceFromPositive.add(tempNegative);
+                            break;
+                        }
                     } else if (values[j] > 0 && sequenceFromPositive.size() % 2 != 0) {
                         sequenceFromPositive.add(tempNegative);
                         tempNegative = Integer.MIN_VALUE;
@@ -67,7 +74,10 @@ public class Task0047 {
                 for (int j = firstNegativeIndex; j < values.length; j++) {
                     if (values[j] < 0 && sequenceFromNegative.size() % 2 == 0) {
                         tempNegative = Math.max(tempNegative, values[j]);
-                        if (j == values.length - 1) sequenceFromNegative.add(tempNegative);
+                        if (j == values.length - 1) {
+                            sequenceFromNegative.add(tempNegative);
+                            break;
+                        }
                     } else if (values[j] > 0 && sequenceFromNegative.size() % 2 == 0) {
                         sequenceFromNegative.add(tempNegative);
                         tempNegative = Integer.MIN_VALUE;
@@ -76,7 +86,10 @@ public class Task0047 {
 
                     if (values[j] > 0 && sequenceFromNegative.size() % 2 != 0) {
                         tempPositive = Math.max(tempPositive, values[j]);
-                        if (j == values.length - 1) sequenceFromNegative.add(tempPositive);
+                        if (j == values.length - 1) {
+                            sequenceFromNegative.add(tempPositive);
+                            break;
+                        }
                     } else if (values[j] < 0 && sequenceFromNegative.size() % 2 != 0) {
                         sequenceFromNegative.add(tempPositive);
                         tempPositive = 0;
