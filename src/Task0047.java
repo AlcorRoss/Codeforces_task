@@ -12,7 +12,8 @@ public class Task0047 {
             int[] values = new int[numberOfValues];
             List<Integer> sequenceFromPositive = new ArrayList<>();
             List<Integer> sequenceFromNegative = new ArrayList<>();
-            int tempPositive = 0, tempNegative = Integer.MIN_VALUE, result, firstPositiveIndex = 0, firstNegativeIndex = 0;
+            long result;
+            int tempPositive = 0, tempNegative = Integer.MIN_VALUE, firstPositiveIndex = 0, firstNegativeIndex = 0;
 
             for (int j = 0; j < numberOfValues; j++) {
                 values[j] = in.nextInt();
@@ -91,14 +92,11 @@ public class Task0047 {
         }
     }
 
-    public static int sequenceSum(List<Integer> values) {
-        int result = 0;
+    public static long sequenceSum(List<Integer> values) {
+        long result = 0;
         for (int value : values) {
             result += value;
         }
         return result;
     }
 }
-
-
-/// ПРОВЕРЯЙ ЧЕТВЕРТЫЙ ТЕСТОВЫЙ НАБОР В ПРИМЕРЕ 1
