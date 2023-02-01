@@ -16,6 +16,7 @@ public class Task0048 {
                 if (currentValue == -1 && oldValue == -1) flag = true;
                 sum += currentValue;
                 if (oldValue < 0 || currentValue < 0) flag2 = false;
+                oldValue = currentValue;
             }
 
             if (flag) {
