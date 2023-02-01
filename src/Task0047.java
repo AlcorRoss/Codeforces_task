@@ -72,6 +72,38 @@ public class Task0047 {
 
                 // Finding the largest sequence from the first negative value.
                 for (int j = firstNegativeIndex; j < values.length; j++) {
+                    if (sequenceFromNegative.size() % 2 == 0) {
+                        int n = j;
+                        int max = Integer.MIN_VALUE;
+                        while (values[n] < 0) {
+                            max = Math.max(max, values[n]);
+                            if (n == values.length - 1) break;
+                            n++;
+                        }
+                        sequenceFromNegative.add(max);
+                        j = n-1;
+                        if (n == values.length - 1) break;
+                        continue;
+                    }
+
+                    if (sequenceFromNegative.size() % 2 != 0) {
+                        int n = j;
+                        int max = 0;
+                        while (values[n] > 0) {
+                            max = Math.max(max, values[n]);
+                            if (n == values.length - 1) break;
+                            n++;
+                        }
+                        sequenceFromNegative.add(max);
+                        j = n - 1;
+                        if (n == values.length - 1) break;
+                    }
+                }
+
+                System.out.println(sequenceFromNegative);
+
+
+/*                for (int j = firstNegativeIndex; j < values.length; j++) {
                     if (values[j] < 0 && sequenceFromNegative.size() % 2 == 0) {
                         tempNegative = Math.max(tempNegative, values[j]);
                         if (j == values.length - 1) {
@@ -95,7 +127,7 @@ public class Task0047 {
                         tempPositive = 0;
                         tempNegative = values[j];
                     }
-                }
+                }*/
 
                 if (sequenceFromPositive.size() > sequenceFromNegative.size()) {
                     result = sequenceSum(sequenceFromPositive);
