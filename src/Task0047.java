@@ -22,9 +22,7 @@ public class Task0047 {
                 if (values[j] < 0) flagNegative = false;
             }
 
-            if (flagPositive && !flagNegative) {
-                System.out.println(Collections.max(Arrays.asList(values)));
-            } else if (!flagPositive && flagNegative) {
+            if (flagPositive && !flagNegative || !flagPositive && flagNegative) {
                 System.out.println(Collections.max(Arrays.asList(values)));
             } else {
 
@@ -100,9 +98,6 @@ public class Task0047 {
                         tempNegative = values[j];
                     }
                 }
-
-                System.out.println(sequenceFromPositive);
-                System.out.println(sequenceFromNegative);
 
                 if (sequenceFromPositive.size() > sequenceFromNegative.size()) {
                     result = sequenceSum(sequenceFromPositive);
