@@ -42,7 +42,7 @@ public class Task0047 {
                     if (j == values.length - 1) sequenceFromPositive.add(tempNegative);
                 } else if (values[j] > 0 && sequenceFromPositive.size() % 2 != 0) {
                     sequenceFromPositive.add(tempNegative);
-                    tempNegative = 0;
+                    tempNegative = Integer.MIN_VALUE;
                     tempPositive = values[j];
                 }
             }
@@ -65,7 +65,7 @@ public class Task0047 {
                     if (j == values.length - 1) sequenceFromNegative.add(tempNegative);
                 } else if (values[j] > 0 && sequenceFromNegative.size() % 2 == 0) {
                     sequenceFromNegative.add(tempNegative);
-                    tempNegative = 0;
+                    tempNegative = Integer.MIN_VALUE;
                     tempPositive = values[j];
                 }
 
