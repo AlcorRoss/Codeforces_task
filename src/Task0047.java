@@ -19,76 +19,81 @@ public class Task0047 {
                 values[j] = in.nextInt();
             }
 
-            //Finding the index of the first positive value.
-            for (int j = 0; j < values.length; j++) {
-                if (values[j] > 0) {
-                    firstPositiveIndex = j;
-                    break;
-                }
-            }
-
-            // Finding the largest sequence from the first positive value.
-            for (int j = firstPositiveIndex; j < values.length; j++) {
-                if (values[j] > 0 && sequenceFromPositive.size() % 2 == 0) {
-                    tempPositive = Math.max(tempPositive, values[j]);
-                    if (j == values.length - 1) sequenceFromPositive.add(tempPositive);
-                } else if (values[j] < 0 && sequenceFromPositive.size() % 2 == 0) {
-                    sequenceFromPositive.add(tempPositive);
-                    tempPositive = 0;
-                    tempNegative = values[j];
-                }
-
-                if (values[j] < 0 && sequenceFromPositive.size() % 2 != 0) {
-                    tempNegative = Math.max(tempNegative, values[j]);
-                    if (j == values.length - 1) sequenceFromPositive.add(tempNegative);
-                } else if (values[j] > 0 && sequenceFromPositive.size() % 2 != 0) {
-                    sequenceFromPositive.add(tempNegative);
-                    tempNegative = Integer.MIN_VALUE;
-                    tempPositive = values[j];
-                }
-            }
-
-            //Finding the index of the first negative value
-            for (int j = 0; j < values.length; j++) {
-                if (values[j] < 0) {
-                    firstNegativeIndex = j;
-                    break;
-                }
-            }
-
-            tempNegative = Integer.MIN_VALUE;
-            tempPositive = 0;
-
-            // Finding the largest sequence from the first negative value.
-            for (int j = firstNegativeIndex; j < values.length; j++) {
-                if (values[j] < 0 && sequenceFromNegative.size() % 2 == 0) {
-                    tempNegative = Math.max(tempNegative, values[j]);
-                    if (j == values.length - 1) sequenceFromNegative.add(tempNegative);
-                } else if (values[j] > 0 && sequenceFromNegative.size() % 2 == 0) {
-                    sequenceFromNegative.add(tempNegative);
-                    tempNegative = Integer.MIN_VALUE;
-                    tempPositive = values[j];
-                }
-
-                if (values[j] > 0 && sequenceFromNegative.size() % 2 != 0) {
-                    tempPositive = Math.max(tempPositive, values[j]);
-                    if (j == values.length - 1) sequenceFromNegative.add(tempPositive);
-                } else if (values[j] < 0 && sequenceFromNegative.size() % 2 != 0) {
-                    sequenceFromNegative.add(tempPositive);
-                    tempPositive = 0;
-                    tempNegative = values[j];
-                }
-            }
-
-            if (sequenceFromPositive.size() > sequenceFromNegative.size()) {
-                result = sequenceSum(sequenceFromPositive);
-            } else if (sequenceFromPositive.size() < sequenceFromNegative.size()) {
-                result = sequenceSum(sequenceFromNegative);
+            if (values.length == 1) {
+                System.out.println(values[0]);
             } else {
-                result = Math.max(sequenceSum(sequenceFromNegative), sequenceSum(sequenceFromPositive));
-            }
 
-            System.out.println(result);
+                //Finding the index of the first positive value.
+                for (int j = 0; j < values.length; j++) {
+                    if (values[j] > 0) {
+                        firstPositiveIndex = j;
+                        break;
+                    }
+                }
+
+                // Finding the largest sequence from the first positive value.
+                for (int j = firstPositiveIndex; j < values.length; j++) {
+                    if (values[j] > 0 && sequenceFromPositive.size() % 2 == 0) {
+                        tempPositive = Math.max(tempPositive, values[j]);
+                        if (j == values.length - 1) sequenceFromPositive.add(tempPositive);
+                    } else if (values[j] < 0 && sequenceFromPositive.size() % 2 == 0) {
+                        sequenceFromPositive.add(tempPositive);
+                        tempPositive = 0;
+                        tempNegative = values[j];
+                    }
+
+                    if (values[j] < 0 && sequenceFromPositive.size() % 2 != 0) {
+                        tempNegative = Math.max(tempNegative, values[j]);
+                        if (j == values.length - 1) sequenceFromPositive.add(tempNegative);
+                    } else if (values[j] > 0 && sequenceFromPositive.size() % 2 != 0) {
+                        sequenceFromPositive.add(tempNegative);
+                        tempNegative = Integer.MIN_VALUE;
+                        tempPositive = values[j];
+                    }
+                }
+
+                //Finding the index of the first negative value
+                for (int j = 0; j < values.length; j++) {
+                    if (values[j] < 0) {
+                        firstNegativeIndex = j;
+                        break;
+                    }
+                }
+
+                tempNegative = Integer.MIN_VALUE;
+                tempPositive = 0;
+
+                // Finding the largest sequence from the first negative value.
+                for (int j = firstNegativeIndex; j < values.length; j++) {
+                    if (values[j] < 0 && sequenceFromNegative.size() % 2 == 0) {
+                        tempNegative = Math.max(tempNegative, values[j]);
+                        if (j == values.length - 1) sequenceFromNegative.add(tempNegative);
+                    } else if (values[j] > 0 && sequenceFromNegative.size() % 2 == 0) {
+                        sequenceFromNegative.add(tempNegative);
+                        tempNegative = Integer.MIN_VALUE;
+                        tempPositive = values[j];
+                    }
+
+                    if (values[j] > 0 && sequenceFromNegative.size() % 2 != 0) {
+                        tempPositive = Math.max(tempPositive, values[j]);
+                        if (j == values.length - 1) sequenceFromNegative.add(tempPositive);
+                    } else if (values[j] < 0 && sequenceFromNegative.size() % 2 != 0) {
+                        sequenceFromNegative.add(tempPositive);
+                        tempPositive = 0;
+                        tempNegative = values[j];
+                    }
+                }
+
+                if (sequenceFromPositive.size() > sequenceFromNegative.size()) {
+                    result = sequenceSum(sequenceFromPositive);
+                } else if (sequenceFromPositive.size() < sequenceFromNegative.size()) {
+                    result = sequenceSum(sequenceFromNegative);
+                } else {
+                    result = Math.max(sequenceSum(sequenceFromNegative), sequenceSum(sequenceFromPositive));
+                }
+
+                System.out.println(result);
+            }
         }
     }
 
