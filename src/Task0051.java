@@ -15,7 +15,10 @@ public class Task0051 {
             }
 
             while (true) {
-                if (line.substring(0, 1).equals(line.substring(line.length() - 1)) || line.length() < 2) {
+                if (line.length() < 2 || line.substring(0, 1).equals(line.substring(line.length() - 1))) {
+                    break;
+                } else if (line.length() == 2) {
+                    line = "";
                     break;
                 } else {
                     line = line.substring(1, line.length() - 2);
