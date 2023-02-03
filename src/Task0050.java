@@ -6,11 +6,11 @@ public class Task0050 {
         int numberOfTests = in.nextInt();
 
         for (int i = 0; i < numberOfTests; i++) {
-            boolean flag = false;
+            boolean flag = true;
             int vertical = 0;
             int horizontal = 0;
             int lineLength = in.nextInt();
-            String line = in.nextLine();
+            String line = in.next();
 
             for (int j = 0; j < lineLength; j++) {
                 switch (line.charAt(j)) {
@@ -22,10 +22,11 @@ public class Task0050 {
 
                 if (vertical == 1 && horizontal == 1) {
                     System.out.println("YES");
-                    flag = true;
+                    flag = false;
                     break;
                 }
             }
+
             if (flag) System.out.println("NO");
         }
     }
