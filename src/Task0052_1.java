@@ -16,7 +16,7 @@ public class Task0052_1 {
                 Set<Character> st = new HashSet<>();
                 Set<Character> st2 = new HashSet<>();
 
-                char[] chars = line.substring(j, j + 1).toCharArray();
+                char[] chars = line.substring(0, j + 1).toCharArray();
                 char[] chars2 = line.substring(j + 1).toCharArray();
 
                 for (Character c : chars) {
@@ -25,6 +25,8 @@ public class Task0052_1 {
                 for (Character c : chars2) {
                     st2.add(c);
                 }
+                System.out.println(st);
+                System.out.println(st2);
 
                 result = Math.max(result, st.size() + st2.size());
             }
