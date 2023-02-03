@@ -25,8 +25,6 @@ public class Task0052_1 {
                 for (Character c : chars2) {
                     st2.add(c);
                 }
-                System.out.println(st);
-                System.out.println(st2);
 
                 result = Math.max(result, st.size() + st2.size());
             }
