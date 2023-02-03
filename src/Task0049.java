@@ -5,15 +5,15 @@ public class Task0049 {
         Scanner in = new Scanner(System.in);
         String line = "codeforces";
         char[] array = line.toCharArray();
-        char temp;
+        String temp;
         int numberOfTests = in.nextInt();
 
         for (int i = 0; i < numberOfTests; i++) {
             boolean flag = false;
-            temp = in.nextLine().charAt(0);
+            temp = in.next();
 
             for (char c : array) {
-                if (temp == c) {
+                if (temp.charAt(0) == c) {
                     flag = true;
                     break;
                 }
