@@ -30,6 +30,7 @@ public class Task0052 {
 
             int counter = 1;
             while (counter > st2.size()) {
+                if (line.length() - 1 < st2.size()) break;
                 st.append(line.charAt(0));
                 line.substring(1);
                 counter = line.length();
