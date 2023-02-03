@@ -28,7 +28,23 @@ public class Task0052 {
                 st2.add(c);
             }
 
-            System.out.println(st.length() + st2.size());
+            int counter = 1;
+            while (counter > st2.size()) {
+                st.append(line.charAt(0));
+                line.substring(1);
+                counter = line.length();
+            }
+
+            int result = st2.size();
+            st2.clear();
+
+            char[] array2 = st.toString().toCharArray();
+
+            for (Character c : array2) {
+                st2.add(c);
+            }
+
+            System.out.println(result + st2.size());
         }
     }
 }
