@@ -23,14 +23,19 @@ public class Task0052_3 {
                 if (!mem.contains(chars[j])) {
                     differentValuesFromBegin[j] = differentValuesFromBegin[j - 1] + 1;
                     mem.add(chars[j]);
+                } else {
+                    differentValuesFromBegin[j] = differentValuesFromBegin[j - 1];
                 }
             }
 
             mem.clear();
+            mem.add(chars[chars.length - 1]);
             for (int j = chars.length - 2; j >= 0; j--) {
                 if (!mem.contains(chars[j])) {
-                    differentValuesFromBegin[j] = differentValuesFromBegin[j + 1] + 1;
+                    differentValuesFromEnd[j] = differentValuesFromEnd[j + 1] + 1;
                     mem.add(chars[j]);
+                } else {
+                    differentValuesFromEnd[j] = differentValuesFromEnd[j + 1];
                 }
             }
 
