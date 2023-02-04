@@ -1,6 +1,4 @@
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class Task0052_1 {
     public static void main(String[] args) {
@@ -9,24 +7,25 @@ public class Task0052_1 {
 
         for (int i = 0; i < numberOfTests; i++) {
             in.nextInt();
-            int result = 0;
+            int result;
+            List<Character> st = new ArrayList<>();
+            List<Character> st2 = new LinkedList<>();
             String line = in.next();
 
-            for (int j = 0; j < line.length() - 1; j++) {
-                Set<Character> st = new HashSet<>();
-                Set<Character> st2 = new HashSet<>();
+            char[] chars = line.toCharArray();
 
-                char[] chars = line.substring(0, j + 1).toCharArray();
-                char[] chars2 = line.substring(j + 1).toCharArray();
+            for (int j = 1; j < chars.length; j++) {
+                st2.add(chars[j]);
+            }
+            st.add(chars[0]);
 
-                for (Character c : chars) {
-                    st.add(c);
-                }
-                for (Character c : chars2) {
-                    st2.add(c);
-                }
+            result = st.size() + new HashSet<>(st2).size();
 
-                result = Math.max(result, st.size() + st2.size());
+            for (int j = 1; j < line.length() - 1; j++) {
+                st.add(chars[j]);
+                st2.remove(0);
+
+                result = Math.max(new HashSet<>(st).size() + new HashSet<>(st2).size(), result);
             }
             System.out.println(result);
         }
