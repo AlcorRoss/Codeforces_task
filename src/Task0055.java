@@ -31,16 +31,23 @@ public class Task0055 {
                 }
             }
 
-            System.out.println(Arrays.toString(different));
-            System.out.println(maxLeft);
-            System.out.println(maxRight);
-
-            for (int dif : different) {
+/*            for (int dif : different) {
                 if (dif < 0 && dif > maxLeft + range && maxLeft != 0) {
                     flag = false;
                     System.out.println("NO");
                     break;
                 } else if (dif > 0 && dif < maxRight - range && maxRight != 0) {
+                    flag = false;
+                    System.out.println("NO");
+                    break;
+                }
+            }
+            if (flag) System.out.println("YES");*/
+
+            Arrays.sort(different);
+
+            for (int j = 1; j < different.length; j++) {
+                if (Math.abs(different[j] - different[j - 1]) > range) {
                     flag = false;
                     System.out.println("NO");
                     break;
