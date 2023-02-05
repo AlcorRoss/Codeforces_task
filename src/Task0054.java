@@ -14,10 +14,17 @@ public class Task0054 {
             int countBBlack = 0;
             int j = 2;
 
-            while (countAWhite + countABlack + countBWhite + countBBlack <= numberOfCards) {
+            while (true) {
 
-                if (j + countBWhite + countAWhite > numberOfCards) {
-                    countBWhite = (numberOfCards - countAWhite - countBWhite) + countBWhite;
+                if (j + countAWhite + countABlack + countBWhite + countBBlack > numberOfCards) {
+                    j = numberOfCards - (countAWhite + countABlack + countBWhite + countBBlack);
+                    if (j % 2 == 0) {
+                        countBWhite += j / 2;
+                        countBBlack += j / 2;
+                    } else {
+                        countBWhite += j / 2;
+                        countBBlack += (j / 2) + 1;
+                    }
                     break;
                 }
                 if (j % 2 == 0) {
@@ -30,8 +37,16 @@ public class Task0054 {
                     j++;
                 }
 
-                if (j + countBWhite + countAWhite > numberOfCards) {
-                    countBWhite = (numberOfCards - countAWhite - countBWhite) + countBWhite;
+
+                if (j + countAWhite + countABlack + countBWhite + countBBlack > numberOfCards) {
+                    j = numberOfCards - (countAWhite + countABlack + countBWhite + countBBlack);
+                    if (j % 2 == 0) {
+                        countBWhite += j / 2;
+                        countBBlack += j / 2;
+                    } else {
+                        countBWhite += j / 2;
+                        countBBlack += (j / 2) + 1;
+                    }
                     break;
                 }
                 if (j % 2 == 0) {
@@ -44,8 +59,16 @@ public class Task0054 {
                     j++;
                 }
 
-                if (j + countBWhite + countAWhite > numberOfCards) {
-                    countAWhite = (numberOfCards - countAWhite - countBWhite) + countAWhite;
+
+                if (j + countAWhite + countABlack + countBWhite + countBBlack > numberOfCards) {
+                    j = numberOfCards - (countAWhite + countABlack + countBWhite + countBBlack);
+                    if (j % 2 == 0) {
+                        countAWhite += j / 2;
+                        countABlack += j / 2;
+                    } else {
+                        countAWhite += (j / 2) + 1;
+                        countABlack += j / 2;
+                    }
                     break;
                 }
                 if (j % 2 == 0) {
@@ -58,8 +81,16 @@ public class Task0054 {
                     j++;
                 }
 
-                if (j + countBWhite + countAWhite > numberOfCards) {
-                    countAWhite = (numberOfCards - countAWhite - countBWhite) + countAWhite;
+
+                if (j + countAWhite + countABlack + countBWhite + countBBlack > numberOfCards) {
+                    j = numberOfCards - (countAWhite + countABlack + countBWhite + countBBlack);
+                    if (j % 2 == 0) {
+                        countAWhite += j / 2;
+                        countABlack += j / 2;
+                    } else {
+                        countAWhite += (j / 2) + 1;
+                        countABlack += j / 2;
+                    }
                     break;
                 }
                 if (j % 2 == 0) {
@@ -73,7 +104,7 @@ public class Task0054 {
                 }
             }
 
-            System.out.println(countAWhite + " " + countBWhite);
+            System.out.println(countAWhite + " " + countABlack + " " + countBWhite + " " + countBBlack);
         }
     }
 }
