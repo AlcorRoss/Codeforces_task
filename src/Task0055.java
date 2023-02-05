@@ -6,10 +6,12 @@ public class Task0055 {
         int numberOfTests = in.nextInt();
 
         for (int i = 0; i < numberOfTests; i++) {
-            int temp;
+            boolean flag = true;
             int maxRight = 0, maxLeft = 0;
             int numberOfCake = in.nextInt();
             int[] cakeCenter = new int[numberOfCake];
+            int[] dispenserCenter = new int[numberOfCake];
+            int[] different = new int[numberOfCake];
 
             int range = in.nextInt();
             range -= in.nextInt();
@@ -18,38 +20,27 @@ public class Task0055 {
                 cakeCenter[j] = in.nextInt();
             }
 
-            for (int k : cakeCenter) {
-                temp = in.nextInt();
-                if (temp < k) {
-                    maxRight = Math.max(maxRight, temp - k);
+            for (int j = 0; j < dispenserCenter.length; j++) {
+                dispenserCenter[j] = in.nextInt();
+                different[j] = dispenserCenter[j] - cakeCenter[j];
+                if (dispenserCenter[j] < cakeCenter[j]) {
+                    maxRight = Math.max(maxRight, dispenserCenter[j] - cakeCenter[j]);
                 } else {
-                    maxLeft = Math.min(maxLeft, temp - k);
+                    maxLeft = Math.min(maxLeft, dispenserCenter[j] - cakeCenter[j]);
                 }
             }
 
-            if (maxRight - range > maxLeft + range) {
-                System.out.println("NO");
-            } else {
-                System.out.println("YES");
+            for (int dif : different) {
+                if (dif < 0 && Math.abs(dif - range) < Math.abs(maxLeft)) {
+                    flag = false;
+                    System.out.println("NO");
+                } else if (dif > 0 && dif + range > maxRight) {
+                    flag = false;
+                    System.out.println("NO");
+                }
             }
 
+            if (flag) System.out.println("YES");
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
