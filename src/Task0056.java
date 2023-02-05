@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Task0056 {
@@ -7,6 +9,7 @@ public class Task0056 {
         int numberOfTests = in.nextInt();
 
         for (int i = 0; i < numberOfTests; i++) {
+            List<Integer> temp = new ArrayList<>();
             int result = 0;
             int numberOfMonsters = in.nextInt();
             int[] monsters = new int[numberOfMonsters];
@@ -17,17 +20,19 @@ public class Task0056 {
 
             Arrays.sort(monsters);
 
-            System.out.println(Arrays.toString(monsters));
-
-            if (monsters[0] != 1) {
-                result = monsters[0] - 1;
-                monsters[0] = 1;
+            for (int monster : monsters) {
+                if (monster > 1) temp.add(monster - 1);
             }
 
-            for (int j = 1; j < monsters.length; j++) {
-                if (monsters[j] > monsters[j - 1] + 1) {
-                    result += monsters[j] - monsters[j - 1] + 1;
-                    monsters[j] = monsters[j - 1] + 1;
+            if (temp.get(0) != 1) {
+                result = temp.get(0) - 1;
+                temp.set(0, 1);
+            }
+
+            for (int j = 1; j < temp.size(); j++) {
+                if (temp.get(j) > temp.get(j - 1) + 1) {
+                    result += temp.get(j) - temp.get(j - 1) + 1;
+                    temp.set(j, temp.get(j - 1) + 1);
                 }
             }
 
