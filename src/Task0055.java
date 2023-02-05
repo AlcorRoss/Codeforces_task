@@ -7,7 +7,6 @@ public class Task0055 {
         int numberOfTests = in.nextInt();
 
         for (int i = 0; i < numberOfTests; i++) {
-            boolean flag = true;
             int maxRight = 0, maxLeft = 0;
             int numberOfCake = in.nextInt();
             int[] cakeCenter = new int[numberOfCake];
@@ -33,14 +32,11 @@ public class Task0055 {
 
             Arrays.sort(different);
 
-            for (int j = 1; j < different.length; j++) {
-                if (Math.abs(different[j] - different[j - 1]) > range * 2) {
-                    flag = false;
-                    System.out.println("NO");
-                    break;
-                }
+            if (Math.abs(different[different.length - 1] - different[0]) > range * 2) {
+                System.out.println("NO");
+            } else {
+                System.out.println("YES");
             }
-            if (flag) System.out.println("YES");
         }
     }
 }
