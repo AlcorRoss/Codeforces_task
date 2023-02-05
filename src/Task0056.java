@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Task0056 {
@@ -16,7 +15,7 @@ public class Task0056 {
                 monsters[j] = in.nextInt();
             }
 
-            Collections.sort(Arrays.asList(monsters), Collections.reverseOrder());
+            Arrays.sort(monsters);
 
             System.out.println(Arrays.toString(monsters));
 
