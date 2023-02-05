@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task0055 {
@@ -30,12 +31,16 @@ public class Task0055 {
                 }
             }
 
+            System.out.println(Arrays.toString(different));
+            System.out.println(maxLeft);
+            System.out.println(maxRight);
+
             for (int dif : different) {
-                if (dif < 0 && Math.abs(dif - range) < Math.abs(maxLeft)) {
+                if (dif < 0 && dif > maxLeft + range && maxLeft != 0) {
                     flag = false;
                     System.out.println("NO");
                     break;
-                } else if (dif > 0 && dif + range > maxRight) {
+                } else if (dif > 0 && dif < maxRight - range && maxRight != 0) {
                     flag = false;
                     System.out.println("NO");
                     break;
