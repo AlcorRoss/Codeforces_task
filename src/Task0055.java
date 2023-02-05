@@ -23,7 +23,7 @@ public class Task0055 {
             for (int j = 0; j < dispenserCenter.length; j++) {
                 dispenserCenter[j] = in.nextInt();
                 different[j] = dispenserCenter[j] - cakeCenter[j];
-                if (dispenserCenter[j] < cakeCenter[j]) {
+                if (dispenserCenter[j] > cakeCenter[j]) {
                     maxRight = Math.max(maxRight, dispenserCenter[j] - cakeCenter[j]);
                 } else {
                     maxLeft = Math.min(maxLeft, dispenserCenter[j] - cakeCenter[j]);
@@ -34,12 +34,13 @@ public class Task0055 {
                 if (dif < 0 && Math.abs(dif - range) < Math.abs(maxLeft)) {
                     flag = false;
                     System.out.println("NO");
+                    break;
                 } else if (dif > 0 && dif + range > maxRight) {
                     flag = false;
                     System.out.println("NO");
+                    break;
                 }
             }
-
             if (flag) System.out.println("YES");
         }
     }
