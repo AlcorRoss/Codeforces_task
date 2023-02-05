@@ -27,6 +27,7 @@ public class Task0056 {
             for (int j = 1; j < monsters.length; j++) {
                 if (monsters[j] > monsters[j - 1] + 1) {
                     result += monsters[j] - monsters[j - 1] + 1;
+                    monsters[j] = monsters[j - 1] + 1;
                 }
             }
 
