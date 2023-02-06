@@ -19,9 +19,7 @@ public class Task0056 {
             while (monsters.size() != 0) {
 
                 if (monsters.get(0) == 1) {
-                    System.out.println(monsters);
                     monsters = decrementAll(monsters);
-                    System.out.println(monsters);
                 } else {
                     result += monsters.get(0) - 1;
                     monsters.set(0, 1);
