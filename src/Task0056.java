@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Task0056 {
     public static void main(String[] args) {
@@ -9,34 +6,36 @@ public class Task0056 {
         int numberOfTests = in.nextInt();
 
         for (int i = 0; i < numberOfTests; i++) {
-            List<Integer> temp = new ArrayList<>();
+            List<Integer> monsters = new LinkedList<>();
             int result = 0;
             int numberOfMonsters = in.nextInt();
-            int[] monsters = new int[numberOfMonsters];
 
-            for (int j = 0; j < monsters.length; j++) {
-                monsters[j] = in.nextInt();
+            for (int j = 0; j < numberOfMonsters; j++) {
+                monsters.add(in.nextInt());
             }
 
-            Arrays.sort(monsters);
+            Collections.sort(monsters);
 
-            for (int monster : monsters) {
-                if (monster > 1) temp.add(monster - 1);
-            }
+            while (monsters.size() != 0) {
 
-            if (temp.get(0) != 1) {
-                result = temp.get(0) - 1;
-                temp.set(0, 1);
-            }
-
-            for (int j = 1; j < temp.size(); j++) {
-                if (temp.get(j) > temp.get(j - 1) + 1) {
-                    result += temp.get(j) - temp.get(j - 1) + 1;
-                    temp.set(j, temp.get(j - 1) + 1);
+                if (monsters.get(0) == 1) {
+                    monsters = decrementAll(monsters);
+                } else {
+                    result += monsters.get(0) - 1;
+                    monsters.set(0, 1);
                 }
             }
 
             System.out.println(result);
         }
+    }
+
+    public static List<Integer> decrementAll(List<Integer> monsters) {
+        for (int i = 0; i < monsters.size(); i++) {
+            monsters.set(i, monsters.get(i) - 1);
+            if (monsters.get(i) == 0) monsters.remove(i);
+        }
+
+        return monsters;
     }
 }
