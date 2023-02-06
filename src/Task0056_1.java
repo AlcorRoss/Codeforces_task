@@ -15,9 +15,11 @@ public class Task0056_1 {
             }
 
             Arrays.sort(monsters);
-
+            System.out.println(Arrays.toString(monsters));
             for (int monster : monsters) {
                 if (monster - temp == 1) {
+                    temp++;
+                } else if (monster == 1) {
                     temp++;
                 } else {
                     result += monster - temp - 1;
