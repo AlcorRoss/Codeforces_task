@@ -18,7 +18,8 @@ public class Task0058 {
                 }
             }
 
-            if (numberOfValues <= even + odd) {
+            if (odd % 2 != 0 && numberOfValues - odd <= even
+                    || odd > 1 && odd % 2 == 0 && numberOfValues - (odd - 1) <= even) {
                 System.out.println("YES");
             } else {
                 System.out.println("NO");
