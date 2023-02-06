@@ -18,12 +18,24 @@ public class Task0058 {
                 }
             }
 
-            if (odd % 2 != 0 && numberOfValues - odd <= even
-                    || even != 0 && odd > 1 && odd % 2 == 0 && numberOfValues - (odd - 1) <= even) {
-                System.out.println("YES");
+            if (numberOfValues % 2 == 0) {
+                if (odd % 2 != 0 && even != 0 && numberOfValues - odd <= even) {
+                    System.out.println("YES");
+                } else if (odd % 2 == 0 && even != 0 && odd > 1 && numberOfValues - (odd - 1) <= even) {
+                    System.out.println("YES");
+                } else {
+                    System.out.println("NO");
+                }
             } else {
-                System.out.println("NO");
+                if (odd % 2 != 0 && numberOfValues - odd <= even) {
+                    System.out.println("YES");
+                } else if (odd % 2 == 0 && odd > 1 && numberOfValues - (odd - 1) <= even) {
+                    System.out.println("YES");
+                } else {
+                    System.out.println("NO");
+                }
             }
+
         }
     }
 }
