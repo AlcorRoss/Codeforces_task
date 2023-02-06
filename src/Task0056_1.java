@@ -20,9 +20,10 @@ public class Task0056_1 {
                 if (monster - temp == 1) {
                     temp++;
                 } else if (monster == 1) {
-                    temp++;
+                    temp = 1;
                 } else {
                     result += monster - temp - 1;
+                    temp++;
                 }
             }
 
