@@ -6,7 +6,7 @@ public class Task0056_1 {
         int numberOfTests = in.nextInt();
 
         for (int i = 0; i < numberOfTests; i++) {
-            int result = 0, temp = 0;
+            long result = 0, temp = 0;
             int numberOfMonsters = in.nextInt();
             int[] monsters = new int[numberOfMonsters];
 
