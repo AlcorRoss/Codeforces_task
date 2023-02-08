@@ -18,10 +18,9 @@ public class Task0059 {
                 pairs.merge(temp - j, 1, Integer::sum);
             }
 
-            for (int value : pairs.values()) {
+            for (long value : pairs.values()) {
                 if (value > 1) {
-                    temp = (value * (value - 1)) / 2;
-                    result += temp;
+                    result += (value * (value - 1)) / 2;
                 }
             }
 
