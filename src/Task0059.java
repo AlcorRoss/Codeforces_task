@@ -6,9 +6,9 @@ public class Task0059 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int numberOfTests = in.nextInt();
-        int result = 0, temp;
 
         for (int i = 0; i < numberOfTests; i++) {
+            int result = 0, temp;
             int numberOfValues = in.nextInt();
             Map<Integer, Integer> pairs = new HashMap<>();
 
