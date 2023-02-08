@@ -19,14 +19,26 @@ public class Task0060 {
                 temp = purpose / numberOfSummand;
                 System.out.println("YES");
                 for (int j = 0; j < numberOfSummand; j++) {
-                    if (j == numberOfSummand - 1) System.out.print(temp);
+                    if (j == numberOfSummand - 1) System.out.println(temp);
                     else System.out.print(temp + " ");
+                }
+            } else if (purpose % 2 == 0 && numberOfSummand % 2 != 0) {
+                temp = (numberOfSummand - 1) * 2L;
+                if (purpose - 2 < temp) {
+                    System.out.println("NO");
+                } else {
+                    temp = (purpose - 2) / (numberOfSummand - 1);
+                    System.out.println("YES");
+                    for (int j = 0; j < numberOfSummand; j++) {
+                        if (j == numberOfSummand - 1) System.out.println(2);
+                        else System.out.print(temp + " ");
+                    }
                 }
             } else {
                 temp = (purpose - 1) / (numberOfSummand - 1);
                 System.out.println("YES");
                 for (int j = 0; j < numberOfSummand; j++) {
-                    if (j == numberOfSummand - 1) System.out.print(1);
+                    if (j == numberOfSummand - 1) System.out.println(1);
                     else if (j % 2 == 0) System.out.print((temp + 1) + " ");
                     else System.out.print((temp - 1) + " ");
                 }
