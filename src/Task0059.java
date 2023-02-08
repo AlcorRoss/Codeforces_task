@@ -20,7 +20,8 @@ public class Task0059 {
 
             for (int value : pairs.values()) {
                 if (value > 1) {
-                    result += (value * (value - 1)) / 2;
+                    temp = (value * (value - 1)) / 2;
+                    result += temp;
                 }
             }
 
