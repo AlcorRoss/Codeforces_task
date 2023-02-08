@@ -29,7 +29,7 @@ public class Task0060 {
                         if (j == numberOfSummand - 1) System.out.println(2);
                         else System.out.print(2 + " ");
                     }
-                } else if (purpose - temp < 2) { // добавить purpose==temp
+                } else if (purpose - temp < 2) {
                     System.out.println("NO");
                 } else {
                     System.out.println("YES");
