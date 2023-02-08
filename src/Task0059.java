@@ -17,8 +17,10 @@ public class Task0059 {
                 pairs.merge(temp - j, 1, Integer::sum);
             }
 
+            System.out.println(pairs);
+
             for (int value : pairs.values()) {
-                if (value > 1) result += value;
+                if (value > 1) result += value / 2;
             }
 
             System.out.println(result);
