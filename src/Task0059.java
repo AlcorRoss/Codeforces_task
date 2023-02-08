@@ -8,7 +8,8 @@ public class Task0059 {
         int numberOfTests = in.nextInt();
 
         for (int i = 0; i < numberOfTests; i++) {
-            int result = 0, temp;
+            long result = 0;
+            int temp;
             int numberOfValues = in.nextInt();
             Map<Integer, Integer> pairs = new HashMap<>();
 
