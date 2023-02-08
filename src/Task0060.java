@@ -6,7 +6,7 @@ public class Task0060 {
         int numberOfTests = in.nextInt();
 
         for (int i = 0; i < numberOfTests; i++) {
-            long temp, temp2;
+            long temp;
             long purpose = in.nextLong();
             int numberOfSummand = in.nextInt();
 
@@ -22,6 +22,12 @@ public class Task0060 {
                     for (int j = 0; j < numberOfSummand; j++) {
                         if (j == numberOfSummand - 1) System.out.println(1);
                         else System.out.print(1 + " ");
+                    }
+                } else if (purpose == temp) {
+                    System.out.println("YES");
+                    for (int j = 0; j < numberOfSummand; j++) {
+                        if (j == numberOfSummand - 1) System.out.println(2);
+                        else System.out.print(2 + " ");
                     }
                 } else if (purpose - temp < 2) { // добавить purpose==temp
                     System.out.println("NO");
@@ -53,8 +59,8 @@ public class Task0060 {
                 if (purpose == temp) {
                     System.out.println("YES");
                     for (int j = 0; j < numberOfSummand; j++) {
-                        if (j == numberOfSummand - 1) System.out.println(1);
-                        else System.out.print(1 + " ");
+                        if (j == numberOfSummand - 1) System.out.println(2);
+                        else System.out.print(2 + " ");
                     }
                 } else if (purpose - temp < 2) {
                     System.out.println("NO");
@@ -66,43 +72,6 @@ public class Task0060 {
                     }
                 }
             }
-
-
-
-
-
-
-
-            /*else if (numberOfSummand % 2 == 0) {
-                temp = purpose / numberOfSummand; // Проблема здесь. Например, 16/14=1
-                temp2 = purpose % numberOfSummand;
-                System.out.println("YES");
-                for (int j = 0; j < numberOfSummand; j++) {
-                    if (j == numberOfSummand - 1) System.out.println(temp + temp2);
-                    else System.out.print(temp + " ");
-                }
-            } else if (purpose % 2 == 0 && numberOfSummand % 2 != 0) {
-                temp = (numberOfSummand - 1) * 2L;
-                if (purpose - 2 < temp) {
-                    System.out.println("NO");
-                } else {
-                    temp = (purpose) / (numberOfSummand - 1);
-                    temp2 = (purpose) % (numberOfSummand - 1);
-                    System.out.println("YES");
-                    for (int j = 0; j <= numberOfSummand; j++) {
-                        if (j == numberOfSummand) System.out.println(temp2);
-                        else System.out.print(temp + " ");
-                    }
-                }
-            } else {
-                temp = (purpose - 1) / (numberOfSummand - 1);
-                System.out.println("YES");
-                for (int j = 0; j <= numberOfSummand; j++) {
-                    if (j == numberOfSummand) System.out.println(1);
-                    else if (j % 2 == 0) System.out.print((temp + 1) + " ");
-                    else System.out.print((temp - 1) + " ");
-                }
-            }*/
         }
     }
 }
