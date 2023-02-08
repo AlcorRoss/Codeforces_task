@@ -28,7 +28,7 @@ public class Task0060 {
                 for (int j = 0; j < numberOfSummand; j++) {
                     if (j == numberOfSummand - 1) System.out.print(1);
                     else if (j % 2 == 0) System.out.print((temp + 1) + " ");
-                    else System.out.println((temp - 1) + " ");
+                    else System.out.print((temp - 1) + " ");
                 }
             }
         }
