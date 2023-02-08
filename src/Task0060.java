@@ -29,13 +29,13 @@ public class Task0060 {
                         if (j == numberOfSummand - 1) System.out.println(2);
                         else System.out.print(2 + " ");
                     }
-                } else if (purpose - (numberOfSummand-1)%2!=0) {
+                } else if ((purpose - (numberOfSummand - 1)) % 2 != 0) {
                     System.out.println("YES");
                     for (int j = 0; j < numberOfSummand; j++) {
-                        if (j == numberOfSummand - 1) System.out.println(1+purpose - numberOfSummand);
+                        if (j == numberOfSummand - 1) System.out.println(1 + purpose - numberOfSummand);
                         else System.out.print(1 + " ");
                     }
-                }else if (purpose - temp < 2) {
+                } else if (purpose - temp < 2) {
                     System.out.println("NO");
                 } else {
                     System.out.println("YES");
