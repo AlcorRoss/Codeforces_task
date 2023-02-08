@@ -15,7 +15,65 @@ public class Task0060 {
                 System.out.println(purpose);
             } else if (purpose < numberOfSummand || purpose % 2 != 0 && numberOfSummand % 2 == 0) {
                 System.out.println("NO");
-            } else if (numberOfSummand % 2 == 0) {
+            } else if (purpose % 2 == 0 && numberOfSummand % 2 == 0) {
+                temp = numberOfSummand * 2L;
+                if (purpose == numberOfSummand) {
+                    System.out.println("YES");
+                    for (int j = 0; j < numberOfSummand; j++) {
+                        if (j == numberOfSummand - 1) System.out.println(1);
+                        else System.out.print(1 + " ");
+                    }
+                } else if (purpose - temp < 2) { // добавить purpose==temp
+                    System.out.println("NO");
+                } else {
+                    System.out.println("YES");
+                    for (int j = 0; j < numberOfSummand; j++) {
+                        if (j == numberOfSummand - 1) System.out.println(2 + purpose - temp);
+                        else System.out.print(2 + " ");
+                    }
+                }
+            } else if (purpose % 2 != 0 && numberOfSummand % 2 != 0) {
+                if (purpose == numberOfSummand) {
+                    System.out.println("YES");
+                    for (int j = 0; j < numberOfSummand; j++) {
+                        if (j == numberOfSummand - 1) System.out.println(1);
+                        else System.out.print(1 + " ");
+                    }
+                } else if (purpose - numberOfSummand < 2) {
+                    System.out.println("NO");
+                } else {
+                    System.out.println("YES");
+                    for (int j = 0; j < numberOfSummand; j++) {
+                        if (j == numberOfSummand - 1) System.out.println(1 + purpose - numberOfSummand);
+                        else System.out.print(1 + " ");
+                    }
+                }
+            } else if (purpose % 2 == 0 && numberOfSummand % 2 != 0) {
+                temp = numberOfSummand * 2L;
+                if (purpose == temp) {
+                    System.out.println("YES");
+                    for (int j = 0; j < numberOfSummand; j++) {
+                        if (j == numberOfSummand - 1) System.out.println(1);
+                        else System.out.print(1 + " ");
+                    }
+                } else if (purpose - temp < 2) {
+                    System.out.println("NO");
+                } else {
+                    System.out.println("YES");
+                    for (int j = 0; j < numberOfSummand; j++) {
+                        if (j == numberOfSummand - 1) System.out.println(2 + purpose - temp);
+                        else System.out.print(2 + " ");
+                    }
+                }
+            }
+
+
+
+
+
+
+
+            /*else if (numberOfSummand % 2 == 0) {
                 temp = purpose / numberOfSummand; // Проблема здесь. Например, 16/14=1
                 temp2 = purpose % numberOfSummand;
                 System.out.println("YES");
@@ -44,7 +102,7 @@ public class Task0060 {
                     else if (j % 2 == 0) System.out.print((temp + 1) + " ");
                     else System.out.print((temp - 1) + " ");
                 }
-            }
+            }*/
         }
     }
 }
