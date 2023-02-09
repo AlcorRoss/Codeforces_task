@@ -6,13 +6,15 @@ public class Task0062 {
         int numberOfTest = in.nextInt();
 
         for (int i = 0; i < numberOfTest; i++) {
+            int temp;
             int purpose = in.nextInt();
 
             if (purpose % 2 == 0) {
                 System.out.println(purpose / 2 + " " + purpose / 2);
-                continue;
+            } else {
+                temp = purpose / 2;
+                System.out.println(temp + 1 + (temp % 10) + " " + (temp - (temp % 10)));
             }
-
         }
     }
 }
