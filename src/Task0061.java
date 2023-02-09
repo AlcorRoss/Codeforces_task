@@ -23,7 +23,7 @@ public class Task0061 {
                 tempFromBegin[j] = values[j] * tempFromBegin[j - 1];
             }
 
-            for (int j = tempFromEnd.length - 2; j > 0; j--) {
+            for (int j = tempFromEnd.length - 2; j >= 0; j--) {
                 tempFromEnd[j] = values[j] * tempFromEnd[j + 1];
             }
 
