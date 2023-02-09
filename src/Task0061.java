@@ -27,7 +27,7 @@ public class Task0061 {
                 tempFromEnd[j] = values[j] * tempFromEnd[j + 1];
             }
 
-            for (int j = 0; j < tempFromBegin.length - 2; j++) {
+            for (int j = 0; j < tempFromBegin.length - 1; j++) {
                 if (tempFromBegin[j] == tempFromEnd[j + 1]) {
                     System.out.println(j + 1);
                     flag = false;
