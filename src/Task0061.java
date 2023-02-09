@@ -8,7 +8,7 @@ public class Task0061 {
         for (int i = 0; i < numberOfTest; i++) {
             boolean flag = true;
             int numberOfValues = in.nextInt();
-            int[] values = new int[numberOfValues];
+            long[] values = new long[numberOfValues];
             long[] tempFromBegin = new long[numberOfValues];
             long[] tempFromEnd = new long[numberOfValues];
 
