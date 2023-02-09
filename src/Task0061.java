@@ -16,15 +16,6 @@ public class Task0061 {
                 values[j] = in.nextInt();
             }
 
-            if (values.length == 2) {
-                if (values[0] == values[1]) {
-                    System.out.println(1);
-                } else {
-                    System.out.println(-1);
-                }
-                continue;
-            }
-
             tempFromBegin[0] = values[0];
             tempFromEnd[tempFromEnd.length - 1] = values[values.length - 1];
 
