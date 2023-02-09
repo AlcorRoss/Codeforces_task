@@ -7,6 +7,7 @@ public class Task0061 {
 
         for (int i = 0; i < numberOfTest; i++) {
             boolean flag = true;
+            long numberOfTwo = 0;
             int numberOfValues = in.nextInt();
             long[] values = new long[numberOfValues];
             long[] tempFromBegin = new long[numberOfValues];
@@ -14,6 +15,12 @@ public class Task0061 {
 
             for (int j = 0; j < numberOfValues; j++) {
                 values[j] = in.nextInt();
+                if (values[j] == 2) numberOfTwo++;
+            }
+
+            if (numberOfTwo % 2 != 0) {
+                System.out.println(-1);
+                continue;
             }
 
             tempFromBegin[0] = values[0];
