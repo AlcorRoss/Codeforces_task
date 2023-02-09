@@ -29,7 +29,7 @@ public class Task0061 {
 
             for (int j = 0; j < tempFromBegin.length - 2; j++) {
                 if (tempFromBegin[j] == tempFromEnd[j + 1]) {
-                    System.out.println(j);
+                    System.out.println(j + 1);
                     flag = false;
                     break;
                 }
