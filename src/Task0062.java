@@ -10,9 +10,9 @@ public class Task0062 {
 
             if (purpose % 2 == 0) {
                 System.out.println(purpose / 2 + " " + purpose / 2);
-            } else {
-                System.out.println(purpose / 2 + " " + (purpose / 2 + 1));
+                continue;
             }
+
         }
     }
 }
