@@ -9,8 +9,8 @@ public class Task0061 {
             boolean flag = true;
             int numberOfValues = in.nextInt();
             int[] values = new int[numberOfValues];
-            int[] tempFromBegin = new int[numberOfValues];
-            int[] tempFromEnd = new int[numberOfValues];
+            long[] tempFromBegin = new long[numberOfValues];
+            long[] tempFromEnd = new long[numberOfValues];
 
             for (int j = 0; j < numberOfValues; j++) {
                 values[j] = in.nextInt();
