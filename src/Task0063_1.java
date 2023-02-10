@@ -34,6 +34,7 @@ public class Task0063_1 {
                     for (var pair : sortedValues.entrySet()) {
                         if (temp < origin) {
                             temp += pair.getValue();
+                            if (temp == origin) result += pair.getKey();
                         } else if (temp > origin && flag) {
                             temp += pair.getValue();
                             flag = false;
