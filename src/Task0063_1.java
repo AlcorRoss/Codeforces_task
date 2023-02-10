@@ -24,12 +24,19 @@ public class Task0063_1 {
 
         for (int i = 0; i < numberOfTests; i++) {
             int type = in.nextInt();
-            int origin = in.nextInt() - 1;
+            int origin = in.nextInt() - 2;
             int bound = in.nextInt() - 1;
 
-            switch (type) {
-                case (1) -> System.out.println(values[bound] - values[origin]);
-                case (2) -> System.out.println(sortedValues[bound] - sortedValues[origin]);
+            if (origin < 0) {
+                switch (type) {
+                    case (1) -> System.out.println(values[bound]);
+                    case (2) -> System.out.println(sortedValues[bound]);
+                }
+            } else {
+                switch (type) {
+                    case (1) -> System.out.println(values[bound] - values[origin]);
+                    case (2) -> System.out.println(sortedValues[bound] - sortedValues[origin]);
+                }
             }
         }
 
