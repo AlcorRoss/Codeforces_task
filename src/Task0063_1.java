@@ -44,6 +44,7 @@ public class Task0063_1 {
                             temp += pair.getValue();
                             flag = false;
                             result += (long) pair.getKey() * pair.getValue();
+                            if (temp == bound) break;
                         } else if (temp == bound) {
                             result += pair.getKey();
                             break;
