@@ -39,7 +39,7 @@ public class Task0063_1 {
                             flag = false;
                             corrector = (temp - origin) * pair.getKey();
                             result += (long) pair.getKey() * pair.getValue() - corrector;
-                        } else if (temp >= origin && temp < bound) {
+                        } else if (temp < bound) {
                             temp += pair.getValue();
                             flag = false;
                             result += (long) pair.getKey() * pair.getValue();
