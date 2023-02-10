@@ -23,12 +23,19 @@ public class Task0063 {
             int bound = in.nextInt() - 1;
             long result = 0;
 
-            for (int j = origin; j <= bound; j++) {
-                switch (type) {
-                    case (1) -> result += values[j];
-                    case (2) -> result += sortedValues[j];
+            switch (type) {
+                case (1) -> {
+                    for (int j = origin; j <= bound; j++) {
+                        result += values[j];
+                    }
+                }
+                case (2) -> {
+                    for (int j = origin; j <= bound; j++) {
+                        result += sortedValues[j];
+                    }
                 }
             }
+
             System.out.println(result);
         }
     }
