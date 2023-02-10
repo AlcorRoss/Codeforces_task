@@ -35,6 +35,7 @@ public class Task0063_1 {
                         if (temp < origin) {
                             temp += pair.getValue();
                             if (temp == origin) result += pair.getKey();
+                            if (temp == bound) break;
                         } else if (temp > origin && flag) {
                             temp += pair.getValue();
                             flag = false;
