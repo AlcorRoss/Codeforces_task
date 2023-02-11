@@ -6,20 +6,26 @@ public class Task0065 {
         int numberOfTests = in.nextInt();
 
         for (int i = 0; i < numberOfTests; i++) {
-            in.nextInt();
-            StringBuilder st1 = new StringBuilder();
-            StringBuilder st2 = new StringBuilder();
+            int numberOfDigit = in.nextInt();
+            StringBuilder st1 = new StringBuilder().append(1);
+            StringBuilder st2 = new StringBuilder().append(1);
             String line = in.next();
             char[] chars = line.toCharArray();
-            for (char c : chars) {
-                switch (c) {
+
+            for (int j = 1; j < numberOfDigit; j++) {
+                switch (chars[j]) {
                     case ('0') -> {
-                        st1.append(2);
-                        st2.append(1);
+                        st1.append(0);
+                        st2.append(0);
                     }
                     case ('1') -> {
-                        st1.append(0);
-                        st2.append(1);
+                        if (j % 2 == 0) {
+                            st1.append(2);
+                            st2.append(1);
+                        } else {
+                            st1.append(1);
+                            st2.append(2);
+                        }
                     }
                     case ('2') -> {
                         st1.append(1);
