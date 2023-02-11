@@ -22,12 +22,12 @@ public class Task0065 {
                     case ('1') -> {
                         flag2 = true;
                         if (flag) {
-                            st1.append(2);
-                            st2.append(1);
+                            st1.append(1);
+                            st2.append(0);
                             flag = false;
                         } else {
-                            st1.append(1);
-                            st2.append(2);
+                            st1.append(0);
+                            st2.append(1);
                         }
                     }
                     case ('2') -> {
