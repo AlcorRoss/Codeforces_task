@@ -7,6 +7,7 @@ public class Task0065 {
 
         for (int i = 0; i < numberOfTests; i++) {
             int numberOfDigit = in.nextInt();
+            boolean flag = true;
             StringBuilder st1 = new StringBuilder().append(1);
             StringBuilder st2 = new StringBuilder().append(1);
             String line = in.next();
@@ -19,17 +20,24 @@ public class Task0065 {
                         st2.append(0);
                     }
                     case ('1') -> {
-                        if (j % 2 == 0) {
+                        if (flag) {
                             st1.append(2);
                             st2.append(1);
+                            flag = false;
                         } else {
                             st1.append(1);
                             st2.append(2);
                         }
                     }
                     case ('2') -> {
-                        st1.append(1);
-                        st2.append(1);
+                        if (flag) {
+                            st1.append(2);
+                            st2.append(0);
+                            flag = false;
+                        } else {
+                            st1.append(0);
+                            st2.append(2);
+                        }
                     }
                 }
             }
