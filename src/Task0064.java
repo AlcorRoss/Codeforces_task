@@ -40,7 +40,7 @@ public class Task0064 {
             if (Math.max(x3, x1) - Math.min(x3, x1) != Math.max(y4, y1) - Math.min(y4, y1))
                 System.out.println(-1);
             else
-                System.out.println(x3 + " " + y3 + " " + x4 + " " + y4);
+                System.out.println(x4 + " " + y4 + " " + x3 + " " + y3);
         }
     }
 }
