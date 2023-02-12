@@ -1,5 +1,3 @@
-package Task0031;
-
 import java.util.*;
 
 public class Task0067 {
