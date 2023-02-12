@@ -13,24 +13,27 @@ public class Task0067_2 {
         }
 
         for (int i = 0; i < numberOFDays; i++) {
-            boolean flag = true;
             int origin = in.nextInt();
             int bound = in.nextInt();
-            int counter = 0;
+            int counter;
             List<Integer> temp = new ArrayList<>();
 
             for (int j = origin; j <= bound; j++) {
                 temp.add(height[j]);
             }
 
-            while (flag) {
-                counter++;
+            int minDif = Collections.max(temp) - Collections.min(temp);
+            counter = minDif;
+
+            while (counter > 0) {
+
                 for (Integer j : temp) {
                     if (temp.contains(j + counter) || temp.contains(j - counter)) {
-                        flag = false;
-                        break;
+                        minDif = Math.min(minDif, counter);
                     }
                 }
+
+                counter--;
             }
 
             System.out.println(counter);
