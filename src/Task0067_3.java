@@ -31,8 +31,7 @@ public class Task0067_3 {
                     minDif2 = Math.min(minDif2, height[origin] - height[j]);
             }
 
-            int result = Math.abs(Math.abs(minDif) - Math.abs(minDif2));
-            System.out.println(result);
+            System.out.println(Math.abs(Math.abs(minDif) - Math.abs(minDif2)));
         }
     }
 }
