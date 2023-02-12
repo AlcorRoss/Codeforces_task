@@ -16,7 +16,7 @@ public class Task0066 {
             temp2 = purpose * secondDayPrice;
 
             if (purpose <= quantityOfDiscount) {
-                System.out.println(Math.max(temp1, temp2));
+                System.out.println(Math.min(temp1, temp2));
                 continue;
             }
 
