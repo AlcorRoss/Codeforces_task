@@ -21,7 +21,7 @@ public class Task0066 {
             }
 
             if (purpose % (quantityOfDiscount + 1) == 0) {
-                temp3 = Math.max(1, purpose / quantityOfDiscount + 1);
+                temp3 = Math.max(1, purpose / (quantityOfDiscount + 1));
                 temp1 = Math.min(temp1, firstDayPrice * quantityOfDiscount * temp3);
                 temp1 = Math.min(temp1, temp2);
                 System.out.println(temp1);
