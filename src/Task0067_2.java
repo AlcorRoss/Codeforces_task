@@ -6,13 +6,14 @@ public class Task0067_2 {
         int numberOfPerson = in.nextInt();
         int numberOFDays = in.nextInt();
         int[] height = new int[numberOfPerson + 1];
-        boolean flag = true;
+
 
         for (int i = 1; i < height.length; i++) {
             height[i] = in.nextInt();
         }
 
         for (int i = 0; i < numberOFDays; i++) {
+            boolean flag = true;
             int origin = in.nextInt();
             int bound = in.nextInt();
             int counter = 0;
