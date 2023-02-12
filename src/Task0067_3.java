@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 public class Task0067_3 {
@@ -18,29 +15,19 @@ public class Task0067_3 {
         for (int i = 0; i < numberOFDays; i++) {
             int origin = in.nextInt();
             int bound = in.nextInt();
-            int counter;
-            List<Integer> temp = new ArrayList<>();
+            int minDif = Integer.MAX_VALUE, minDif2 = Integer.MAX_VALUE;
 
-            for (int j = origin; j <= bound; j++) {
-                temp.add(height[j]);
+            for (int j = origin + 1; j <= bound; j++) {
+                minDif = Math.min(minDif, height[origin] - height[j]);
             }
 
-            int minDif = Collections.max(temp) - Collections.min(temp);
-            counter = minDif;
-
-            while (counter > 0) {
-
-                for (Integer j : temp) {
-                    if (temp.contains(j + counter) || temp.contains(j - counter)) {
-                        minDif = Math.min(minDif, counter);
-                    }
-                }
-
-                counter--;
+            for (int j = origin + 1; j <= bound; j++) {
+                if ((height[origin] - height[j]) > minDif)
+                    minDif2 = Math.min(minDif2, height[origin] - height[j]);
             }
 
-            System.out.println(minDif);
+            int result = Math.abs(Math.abs(minDif) - Math.abs(minDif2));
+            System.out.println(result);
         }
     }
 }
-//Первый элемент отнять от всех и найти наименьшую разницу? Потом второй проход и вторую по величине разниц. Разница между ними-ответ
