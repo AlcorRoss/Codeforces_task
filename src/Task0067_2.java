@@ -36,7 +36,7 @@ public class Task0067_2 {
                 counter--;
             }
 
-            System.out.println(counter);
+            System.out.println(minDif);
         }
     }
 }
