@@ -17,7 +17,7 @@ public class Task0067_3 {
             int bound = in.nextInt();
             int minDif = Integer.MAX_VALUE, minDif2 = Integer.MAX_VALUE;
 
-            if ((bound - origin) == 2) {
+            if ((bound - origin) == 1) {
                 System.out.println(Math.abs(height[origin] - height[bound]));
                 continue;
             }
