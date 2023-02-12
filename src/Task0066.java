@@ -34,7 +34,6 @@ public class Task0066 {
             temp1 = Math.min(temp1, temp2);
             temp1 = Math.min(temp1, tempDiscount);
             System.out.println(temp1);
-
         }
     }
 }
