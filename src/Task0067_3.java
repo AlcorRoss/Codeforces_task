@@ -32,7 +32,7 @@ public class Task0067_3 {
             }
 
             for (int j = origin; j <= bound; j++) {
-                if ((height[origin] - height[j]) > minDif && (maxHeight - height[j]) != 0)
+                if ((maxHeight - height[j]) > minDif && (maxHeight - height[j]) != 0)
                     minDif2 = Math.min(minDif2, maxHeight - height[j]);
             }
 
