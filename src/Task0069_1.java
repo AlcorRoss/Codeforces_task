@@ -9,15 +9,13 @@ public class Task0069_1 {
 
         for (int i = 0; i < numberOfTests; i++) {
             int numberOfValues = in.nextInt();
-            int averageValue = 0, temp, result = 0;
+            int averageValue = 0, temp;
             double averageWeight;
             Map<Integer, Integer> valueMap = new HashMap<>();
-            Map<Integer, Integer> weightMap = new HashMap<>();
 
             for (int j = 0; j < numberOfValues; j++) {
                 temp = in.nextInt();
                 valueMap.merge(temp, 1, Integer::sum);
-                weightMap.merge(temp, 1, Integer::sum);
                 averageValue += temp;
             }
 
@@ -29,10 +27,9 @@ public class Task0069_1 {
                 continue;
             }
 
-            averageWeight = (double) averageValue / numberOfValues;
-            averageWeight *= 2;
+            averageWeight = Math.round((double) averageValue / (double) numberOfValues);
 
-            averageValue /= numberOfValues;
+            averageValue = (int) averageWeight;
             averageValue *= 2;
             temp = 0;
 
@@ -49,26 +46,7 @@ public class Task0069_1 {
                 valueMap.put(value, 0);
             }
 
-            averageValue = (int) averageWeight;
-
-            for (int value : weightMap.keySet()) {
-                if (averageValue - value > 0 && weightMap.containsKey(averageValue - value)
-                        && weightMap.get(averageValue - value) != 0) {
-                    if ((averageValue - value) == value) {
-                        result += weightMap.get(value) / 2;
-                    } else {
-                        result += Math.min(weightMap.get(value), weightMap.get(averageValue - value));
-                    }
-                    weightMap.put(averageValue - value, 0);
-                }
-                weightMap.put(value, 0);
-            }
-
-            result = Math.max(result, temp);
-
-            System.out.println(result);
+            System.out.println(temp);
         }
     }
 }
-
-//Продолжи это. Неправильный ответ в тесте 2.
