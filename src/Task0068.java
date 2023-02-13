@@ -18,19 +18,19 @@ public class Task0068 {
                 continue;
             }
 
-            for (char c : chars) {
-                switch (c) {
+            for (int j = 0; j < chars.length; j++) {
+                switch (chars[j]) {
                     case ('1') -> flag1 = true;
                     case ('2') -> flag2 = true;
                     case ('3') -> flag3 = true;
                 }
-                tempLine.add(c);
+                tempLine.add(chars[j]);
 
                 if (flag1 && flag2 && flag3) {
                     int counter = 0;
-                    for (int j = tempLine.size() - 1; j >= 0; j--) {
+                    for (int k = tempLine.size() - 1; j >= 0; j--) {
                         counter++;
-                        switch (tempLine.get(j)) {
+                        switch (tempLine.get(k)) {
                             case ('1') -> flag1 = false;
                             case ('2') -> flag2 = false;
                             case ('3') -> flag3 = false;
@@ -39,6 +39,7 @@ public class Task0068 {
                     }
                     minLength = Math.min(minLength, counter);
                     tempLine.clear();
+                    j -= counter;
                 }
             }
             System.out.println(minLength);
