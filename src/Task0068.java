@@ -19,19 +19,18 @@ public class Task0068 {
             }
 
             for (char c : chars) {
-                if (flag1 && flag2 && flag3) {
-                    minLength = Math.min(minLength, tempLine.size());
-                    tempLine.clear();
-                    flag1 = flag2 = flag3 = false;
-                }
-
                 switch (c) {
                     case ('1') -> flag1 = true;
                     case ('2') -> flag2 = true;
                     case ('3') -> flag3 = true;
                 }
-
                 tempLine.add(c);
+
+                if (flag1 && flag2 && flag3) {
+                    minLength = Math.min(minLength, tempLine.size());
+                    tempLine.clear();
+                    flag1 = flag2 = flag3 = false;
+                }
             }
             System.out.println(minLength);
         }
