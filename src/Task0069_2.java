@@ -10,14 +10,16 @@ public class Task0069_2 {
         for (int i = 0; i < numberOfTests; i++) {
             int numberOfValues = in.nextInt();
             int averageValue = 0, temp, result = 0;
-            double averageWeight;
+            double averageWeight, averageRound;
             Map<Integer, Integer> valueMap = new HashMap<>();
             Map<Integer, Integer> weightMap = new HashMap<>();
+            Map<Integer, Integer> weightMap1 = new HashMap<>();
 
             for (int j = 0; j < numberOfValues; j++) {
                 temp = in.nextInt();
                 valueMap.merge(temp, 1, Integer::sum);
                 weightMap.merge(temp, 1, Integer::sum);
+                weightMap1.merge(temp, 1, Integer::sum);
                 averageValue += temp;
             }
 
@@ -29,12 +31,16 @@ public class Task0069_2 {
                 continue;
             }
 
-            averageWeight = Math.round((double) averageValue / (double) numberOfValues);
+            averageRound = Math.round((double) averageValue / (double) numberOfValues);
+            averageRound *= 2;
+
+            averageWeight = (double) averageValue / numberOfValues;
             averageWeight *= 2;
 
             averageValue /= numberOfValues;
             averageValue *= 2;
             temp = 0;
+            System.out.println(averageValue);
 
             for (int value : valueMap.keySet()) {
                 if (averageValue - value > 0 && valueMap.containsKey(averageValue - value)
@@ -50,6 +56,7 @@ public class Task0069_2 {
             }
 
             averageValue = (int) averageWeight;
+            System.out.println(averageValue);
 
             for (int value : weightMap.keySet()) {
                 if (averageValue - value > 0 && weightMap.containsKey(averageValue - value)
@@ -66,9 +73,27 @@ public class Task0069_2 {
 
             result = Math.max(result, temp);
 
+            averageValue = (int) averageRound;
+            temp = 0;
+
+            System.out.println(averageValue);
+
+            for (int value : weightMap1.keySet()) {
+                if (averageValue - value > 0 && weightMap1.containsKey(averageValue - value)
+                        && weightMap1.get(averageValue - value) != 0) {
+                    if ((averageValue - value) == value) {
+                        temp += weightMap1.get(value) / 2;
+                    } else {
+                        temp += Math.min(weightMap1.get(value), weightMap1.get(averageValue - value));
+                    }
+                    weightMap1.put(averageValue - value, 0);
+                }
+                weightMap1.put(value, 0);
+            }
+
+            result = Math.max(result, temp);
+            
             System.out.println(result);
         }
     }
 }
-
-//Продолжи это. Неправильный ответ в тесте 2.
