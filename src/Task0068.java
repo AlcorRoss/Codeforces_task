@@ -28,7 +28,7 @@ public class Task0068 {
 
                 if (flag1 && flag2 && flag3) {
                     int counter = 0;
-                    for (int k = tempLine.size() - 1; j >= 0; j--) {
+                    for (int k = tempLine.size() - 1; k >= 0; k--) {
                         counter++;
                         switch (tempLine.get(k)) {
                             case ('1') -> flag1 = false;
@@ -39,7 +39,7 @@ public class Task0068 {
                     }
                     minLength = Math.min(minLength, counter);
                     tempLine.clear();
-                    j -= counter;
+                    j = j - counter;
                 }
             }
             System.out.println(minLength);
