@@ -40,7 +40,6 @@ public class Task0069_2 {
             averageValue /= numberOfValues;
             averageValue *= 2;
             temp = 0;
-            System.out.println(averageValue);
 
             for (int value : valueMap.keySet()) {
                 if (averageValue - value > 0 && valueMap.containsKey(averageValue - value)
@@ -56,7 +55,6 @@ public class Task0069_2 {
             }
 
             averageValue = (int) averageWeight;
-            System.out.println(averageValue);
 
             for (int value : weightMap.keySet()) {
                 if (averageValue - value > 0 && weightMap.containsKey(averageValue - value)
@@ -76,7 +74,6 @@ public class Task0069_2 {
             averageValue = (int) averageRound;
             temp = 0;
 
-            System.out.println(averageValue);
 
             for (int value : weightMap1.keySet()) {
                 if (averageValue - value > 0 && weightMap1.containsKey(averageValue - value)
