@@ -33,6 +33,7 @@ public class Task0068 {
 
                 tempLine.add(c);
             }
+            System.out.println(minLength);
         }
     }
 }
