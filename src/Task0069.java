@@ -10,6 +10,7 @@ public class Task0069 {
         for (int i = 0; i < numberOfTests; i++) {
             int numberOfValues = in.nextInt();
             int averageValue = 0, temp;
+            double averageWeight;
             Map<Integer, Integer> valueMap = new HashMap<>();
 
             for (int j = 0; j < numberOfValues; j++) {
@@ -26,8 +27,9 @@ public class Task0069 {
                 continue;
             }
 
-            averageValue /= numberOfValues;
-            averageValue *= 2;
+            averageWeight = (double) averageValue / numberOfValues;
+            averageWeight *= 2;
+            averageValue = (int) averageWeight;
             temp = 0;
 
             for (int value : valueMap.keySet()) {
