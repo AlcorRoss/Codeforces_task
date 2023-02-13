@@ -39,7 +39,7 @@ public class Task0068 {
                     }
                     minLength = Math.min(minLength, counter);
                     tempLine.clear();
-                    j = j - counter;
+                    j -= (counter - 1);
                 }
             }
             System.out.println(minLength);
