@@ -33,7 +33,11 @@ public class Task0069 {
             for (int value : valueMap.keySet()) {
                 if (averageValue - value > 0 && valueMap.containsKey(averageValue - value)
                         && valueMap.get(averageValue - value) != 0) {
-                    temp += Math.min(valueMap.get(value), valueMap.get(averageValue - value));
+                    if ((averageValue - value) == value) {
+                        temp += valueMap.get(value) / 2;
+                    } else {
+                        temp += Math.min(valueMap.get(value), valueMap.get(averageValue - value));
+                    }
                     valueMap.put(averageValue - value, 0);
                 }
                 valueMap.put(value, 0);
