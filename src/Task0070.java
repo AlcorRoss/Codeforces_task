@@ -13,7 +13,9 @@ public class Task0070 {
         }
 
         Arrays.sort(values);
-        if (values.length == 1) {
+        if (values.length == purpose) {
+            System.out.println(values[values.length - 1]);
+        } else if (values.length == 1) {
             if (purpose == 0 && values[0] > 1)
                 System.out.println(values[0] - 1);
             else if (purpose == 0 && values[0] == 1)
