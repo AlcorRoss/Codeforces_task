@@ -13,8 +13,12 @@ public class Task0070 {
         }
 
         Arrays.sort(values);
-
-        if (values[purpose - 1] != values[purpose]) {
+        if (values.length == 1) {
+            if (values[0] <= purpose)
+                System.out.println(values[0]);
+            else
+                System.out.println(-1);
+        } else if (values[purpose - 1] != values[purpose]) {
             System.out.println(values[purpose - 1]);
         } else {
             System.out.println(-1);
