@@ -55,7 +55,7 @@ public class Task0069_1 {
 
             averageValue2 = maxQuantity + preMaxQuantity;
 
-            result = maxQuantity / 2;
+            result = valueMap.get(maxQuantity) / 2;
             result = Math.max(result, calculate(valueMap, averageValue));
             result = Math.max(result, calculate(valueMap1, (int) averageValue1));
             result = Math.max(result, calculate(valueMap2, averageValue2));
