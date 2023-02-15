@@ -11,6 +11,7 @@ public class Task0071_1 {
             long temp = firstValue;
 
             for (int j = 1; j < purposeValue; j++) {
+                if (temp == calculateNextValue(temp)) break;
                 temp = calculateNextValue(temp);
             }
             System.out.println(temp);
