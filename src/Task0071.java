@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
@@ -12,7 +13,7 @@ public class Task0071 {
             long purposeValue = in.nextLong();
             long temp = firstValue;
 
-            for (int j = 0; j < purposeValue; j++) {
+            for (int j = 1; j < purposeValue; j++) {
                 temp = calculateNextValue(temp);
             }
             System.out.println(temp);
@@ -21,7 +22,7 @@ public class Task0071 {
 
     public static long calculateNextValue(long temp) {
         String line = String.valueOf(temp);
-        List<Integer> tempList = line.chars().mapToObj(c -> Integer.parseInt(String.valueOf(c))).toList();
+        List<Integer> tempList = Arrays.stream(line.split("")).map(Integer::valueOf).toList();
         return temp + ((long) Collections.max(tempList) * Collections.min(tempList));
     }
 }
