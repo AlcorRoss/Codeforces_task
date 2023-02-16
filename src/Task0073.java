@@ -6,20 +6,20 @@ public class Task0073 {
         int numberOfTests = in.nextInt();
 
         for (int i = 0; i < numberOfTests; i++) {
-            boolean flag = false;
+            boolean flag = false, flag2 = false, flag3 = false;
             int numberOfValues = in.nextInt();
             int purpose = in.nextInt();
-            int temp;
+            int temp, temp2;
 
             for (int j = 0; j < numberOfValues; j++) {
                 temp = in.nextInt();
-                if (temp == purpose) flag = true;
-
-                temp = in.nextInt();
-                if (temp == purpose) flag = true;
+                temp2 = in.nextInt();
+                if (temp == purpose && temp2 == purpose) flag = true;
+                else if (temp == purpose) flag2 = true;
+                else if (temp2 == purpose) flag3 = true;
             }
 
-            if (flag) System.out.println("YES");
+            if (flag || flag2 && flag3) System.out.println("YES");
             else System.out.println("NO");
         }
     }
