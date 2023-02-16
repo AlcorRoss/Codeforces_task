@@ -31,4 +31,3 @@ public class Task0071_1 {
     }
 }
 
-//test git
