@@ -30,3 +30,5 @@ public class Task0071_1 {
         return temp + (min * max);
     }
 }
+
+//test git
