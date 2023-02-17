@@ -8,14 +8,12 @@ public class Task0074 {
         for (int i = 0; i < numberOfTests; i++) {
             int numberOfValues = in.nextInt();
             int[] values = new int[numberOfValues];
-            int[] values1 = new int[numberOfValues];
-            int[] values2 = new int[numberOfValues];
+            int[] tempArray;
             int maxIndex = 0, maxValue = 0, counter, temp, result;
             List<Integer> results = new ArrayList<>();
 
             for (int j = 0; j < values.length; j++) {
                 values[j] = in.nextInt();
-                values1[j] = values2[j] = values[j];
                 if (values[j] > maxValue && j != 0 && j != values.length - 1) {
                     maxValue = values[j];
                     maxIndex = j;
@@ -40,19 +38,21 @@ public class Task0074 {
             }
 
             if (maxValue < values[0]) {
-                explosiveUp(values2, values2[0], 0);
-                result = values2[0];
-                values2[0] = 0;
-                temp = Arrays.stream(values2).reduce(Integer::sum).getAsInt();
+                tempArray = values.clone();
+                explosiveUp(tempArray, tempArray[0], 0);
+                result = tempArray[0];
+                tempArray[0] = 0;
+                temp = Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
                 result += temp;
                 results.add(result);
             }
 
             if (maxValue < values[values.length - 1]) {
-                explosiveDown(values1, values1[values.length - 1], values1.length - 1);
-                result = values1[values.length - 1];
-                values1[values.length - 1] = 0;
-                temp = Arrays.stream(values1).reduce(Integer::sum).getAsInt();
+                tempArray = values.clone();
+                explosiveDown(tempArray, tempArray[values.length - 1], tempArray.length - 1);
+                result = tempArray[values.length - 1];
+                tempArray[values.length - 1] = 0;
+                temp = Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
                 result += temp;
                 results.add(result);
             }
