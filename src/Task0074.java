@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task0074 {
@@ -8,21 +9,46 @@ public class Task0074 {
         for (int i = 0; i < numberOfTests; i++) {
             int numberOfValues = in.nextInt();
             int[] values = new int[numberOfValues];
-            int maxIndex, temp = 0, counter = 0;
+            int maxIndex = 0, maxValue = 0, counter, temp;
 
             for (int j = 0; j < values.length; j++) {
                 values[j] = in.nextInt();
-                if (values[j] > temp) {
-                    temp = values[j];
+                if (values[j] > maxValue && j != 0 && j != values.length - 1) {
+                    maxValue = values[j];
                     maxIndex = j;
                 }
             }
+            counter = maxValue;
 
-            while (true) {
+            temp = maxIndex;
 
+            while (--temp >= 0) {
+                if (values[temp] <= maxValue) {
+                    maxValue = values[temp];
+                    values[temp] = 0;
+                } else {
+                    values[temp] -= maxValue;
+                    break;
+                }
             }
 
+            temp = maxIndex;
+            maxValue = values[maxIndex];
+            values[maxIndex] = 0;
 
+            while (++temp < values.length) {
+                if (values[temp] <= maxValue) {
+                    maxValue = values[temp];
+                    values[temp] = 0;
+                } else {
+                    values[temp] -= maxValue;
+                    break;
+                }
+            }
+
+            temp = Arrays.stream(values).reduce(Integer::sum).getAsInt();
+            counter += temp;
+            System.out.println(counter);
         }
     }
 }
