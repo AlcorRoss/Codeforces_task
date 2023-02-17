@@ -67,6 +67,7 @@ public class Task0074_2 {
 
     public static int explosiveDown(int[] values, int maxValue, int temp) {
         int maxIndex = temp;
+        int result = values[maxIndex];
         while (--temp >= 0) {
             if (values[temp] <= maxValue) {
                 maxValue = Math.max(values[temp] - 1, 0);
@@ -76,13 +77,24 @@ public class Task0074_2 {
                 break;
             }
         }
-        int result = values[maxIndex];
         values[maxIndex] = 0;
         return result;
     }
 
     public static int explosiveUp(int[] values, int maxValue, int temp) {
         int maxIndex = temp;
+        int tempValue = maxValue;
+        int result = values[maxIndex];
+
+        for (int k = temp + 1; k < values.length; k++) {
+            if (tempValue == 0) break;
+            if (tempValue < values[k]) {
+                result += values[k] - tempValue;
+                values[k] -= values[k] - tempValue;
+            }
+            tempValue--;
+        }
+
         while (++temp < values.length) {
             if (values[temp] <= maxValue) {
                 maxValue = Math.max(values[temp] - 1, 0);
@@ -92,7 +104,6 @@ public class Task0074_2 {
                 break;
             }
         }
-        int result = values[maxIndex];
         values[maxIndex] = 0;
         return result;
     }
