@@ -24,7 +24,7 @@ public class Task0074 {
 
             while (--temp >= 0) {
                 if (values[temp] <= maxValue) {
-                    maxValue = values[temp];
+                    maxValue = Math.max(values[temp] - 1, 0);
                     values[temp] = 0;
                 } else {
                     values[temp] -= maxValue;
@@ -38,7 +38,7 @@ public class Task0074 {
 
             while (++temp < values.length) {
                 if (values[temp] <= maxValue) {
-                    maxValue = values[temp];
+                    maxValue = Math.max(values[temp] - 1, 0);
                     values[temp] = 0;
                 } else {
                     values[temp] -= maxValue;
