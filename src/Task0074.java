@@ -9,10 +9,13 @@ public class Task0074 {
         for (int i = 0; i < numberOfTests; i++) {
             int numberOfValues = in.nextInt();
             int[] values = new int[numberOfValues];
-            int maxIndex = 0, maxValue = 0, counter, temp;
+            int[] values1 = new int[numberOfValues];
+            int[] values2 = new int[numberOfValues];
+            int maxIndex = 0, maxValue = 0, counter, temp, result1 = Integer.MAX_VALUE, result2 = Integer.MAX_VALUE;
 
             for (int j = 0; j < values.length; j++) {
                 values[j] = in.nextInt();
+                values1[j] = values2[j] = values[j];
                 if (values[j] > maxValue && j != 0 && j != values.length - 1) {
                     maxValue = values[j];
                     maxIndex = j;
@@ -36,37 +39,60 @@ public class Task0074 {
                 continue;
             }
 
+            if (maxValue < values[0]) {
+                explosiveUp(values2, values2[0], 0);
+                result2 = values2[0];
+                values2[0] = 0;
+                temp = Arrays.stream(values2).reduce(Integer::sum).getAsInt();
+                result2 += temp;
+            } else if (maxValue < values[values.length - 1]) {
+                explosiveDown(values1, values1[values.length - 1], values1.length - 1);
+                result1 = values1[values.length - 1];
+                values1[values.length - 1] = 0;
+                temp = Arrays.stream(values1).reduce(Integer::sum).getAsInt();
+                result1 += temp;
+            }
+
             counter = maxValue;
             maxValue = Math.max(0, values[maxIndex] - 1);
             temp = maxIndex;
 
-            while (--temp >= 0) {
-                if (values[temp] <= maxValue) {
-                    maxValue = Math.max(values[temp] - 1, 0);
-                    values[temp] = 0;
-                } else {
-                    values[temp] -= maxValue;
-                    break;
-                }
-            }
+            explosiveDown(values, maxValue, temp);
 
-            temp = maxIndex;
             maxValue = Math.max(0, values[maxIndex] - 1);
             values[maxIndex] = 0;
 
-            while (++temp < values.length) {
-                if (values[temp] <= maxValue) {
-                    maxValue = Math.max(values[temp] - 1, 0);
-                    values[temp] = 0;
-                } else {
-                    values[temp] -= maxValue;
-                    break;
-                }
-            }
+            explosiveUp(values, maxValue, temp);
 
             temp = Arrays.stream(values).reduce(Integer::sum).getAsInt();
             counter += temp;
+            counter = Math.min(counter, result1);
+            counter = Math.min(counter, result2);
             System.out.println(counter);
+        }
+    }
+
+    public static void explosiveDown(int[] values, int maxValue, int temp) {
+        while (--temp >= 0) {
+            if (values[temp] <= maxValue) {
+                maxValue = Math.max(values[temp] - 1, 0);
+                values[temp] = 0;
+            } else {
+                values[temp] -= maxValue;
+                break;
+            }
+        }
+    }
+
+    public static void explosiveUp(int[] values, int maxValue, int temp) {
+        while (++temp < values.length) {
+            if (values[temp] <= maxValue) {
+                maxValue = Math.max(values[temp] - 1, 0);
+                values[temp] = 0;
+            } else {
+                values[temp] -= maxValue;
+                break;
+            }
         }
     }
 }
