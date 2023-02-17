@@ -19,7 +19,7 @@ public class Task0074 {
                 }
             }
             counter = maxValue;
-
+            maxValue = Math.max(0, values[maxIndex] - 1);
             temp = maxIndex;
 
             while (--temp >= 0) {
@@ -33,7 +33,7 @@ public class Task0074 {
             }
 
             temp = maxIndex;
-            maxValue = values[maxIndex];
+            maxValue = Math.max(0, values[maxIndex] - 1);
             values[maxIndex] = 0;
 
             while (++temp < values.length) {
