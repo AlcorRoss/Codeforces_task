@@ -9,14 +9,13 @@ public class Task0074_1 {
             int numberOfValues = in.nextInt();
             int[] values = new int[numberOfValues];
             int[] tempArray;
-            int maxIndex = 0, maxValue = 0, temp, result, tempMaxValue;
+            int maxValue = 0, result, tempMaxValue;
             List<Integer> results = new ArrayList<>();
 
             for (int j = 0; j < values.length; j++) {
                 values[j] = in.nextInt();
                 if (values[j] > maxValue && j != 0 && j != values.length - 1) {
                     maxValue = values[j];
-                    maxIndex = j;
                 }
             }
 
@@ -39,31 +38,20 @@ public class Task0074_1 {
 
             if (maxValue < values[0]) {
                 tempArray = values.clone();
-                results.add(explosiveUp(tempArray, tempArray[0], 0));
+                results.add(explosiveUp(tempArray, tempArray[0] - 1, 0));
             }
 
             if (maxValue < values[values.length - 1]) {
                 tempArray = values.clone();
-                results.add(explosiveDown(tempArray, tempArray[values.length - 1], tempArray.length - 1));
+                results.add(explosiveDown(tempArray, tempArray[values.length - 1] - 1, tempArray.length - 1));
             }
 
             for (int j = 1; j < values.length - 1; j++) {
                 if (values[j] == maxValue) {
                     tempArray = values.clone();
-                    tempMaxValue = maxValue;
-                    result = tempMaxValue;
-                    tempMaxValue = Math.max(0, tempArray[maxIndex] - 1);
-                    temp = maxIndex;
-
-                    explosiveDown(tempArray, tempMaxValue, temp);
-
-                    tempMaxValue = Math.max(0, tempArray[maxIndex] - 1);
-                    tempArray[maxIndex] = 0;
-
-                    explosiveUp(tempArray, tempMaxValue, temp);
-
-                    temp = Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
-                    result += temp;
+                    tempMaxValue = Math.max(0, tempArray[j] - 1);
+                    result = explosiveDown(tempArray, tempMaxValue, j);
+                    result += explosiveUp(tempArray, tempMaxValue, j);
                     results.add(result);
                 }
             }
