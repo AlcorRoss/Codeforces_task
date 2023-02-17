@@ -17,7 +17,7 @@ public class Task0069_2 {
 
             for (int j = 1; j <= 104; j++) {
                 int counter = 0;
-                for (int k = 1; k <= j; k++) {
+                for (int k = 1; k < j; k++) {
                     counter += Math.min(weights[k], weights[j - k]);
                 }
                 max = Math.max(counter, max);
