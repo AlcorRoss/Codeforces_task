@@ -55,7 +55,7 @@ public class Task0074_2 {
                     tempArray = values.clone();
                     tempMaxValue = Math.max(0, tempArray[j] - 1);
                     result = explosiveDown(tempArray, tempMaxValue, j);
-                    explosiveUp(tempArray, tempMaxValue, j);
+                    result += explosiveUp(tempArray, tempMaxValue, j);
                     result += Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
                     results.add(result);
                 }
