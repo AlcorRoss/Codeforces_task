@@ -39,22 +39,12 @@ public class Task0074_1 {
 
             if (maxValue < values[0]) {
                 tempArray = values.clone();
-                explosiveUp(tempArray, tempArray[0], 0);
-                result = tempArray[0];
-                tempArray[0] = 0;
-                temp = Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
-                result += temp;
-                results.add(result);
+                results.add(explosiveUp(tempArray, tempArray[0], 0));
             }
 
             if (maxValue < values[values.length - 1]) {
                 tempArray = values.clone();
-                explosiveDown(tempArray, tempArray[values.length - 1], tempArray.length - 1);
-                result = tempArray[values.length - 1];
-                tempArray[values.length - 1] = 0;
-                temp = Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
-                result += temp;
-                results.add(result);
+                results.add(explosiveDown(tempArray, tempArray[values.length - 1], tempArray.length - 1));
             }
 
             for (int j = 1; j < values.length - 1; j++) {
@@ -82,7 +72,8 @@ public class Task0074_1 {
         }
     }
 
-    public static void explosiveDown(int[] values, int maxValue, int temp) {
+    public static int explosiveDown(int[] values, int maxValue, int temp) {
+        int maxIndex = temp;
         while (--temp >= 0) {
             if (values[temp] <= maxValue) {
                 maxValue = Math.max(values[temp] - 1, 0);
@@ -92,9 +83,15 @@ public class Task0074_1 {
                 break;
             }
         }
+        int result = values[maxIndex];
+        values[maxIndex] = 0;
+        temp = Arrays.stream(values).reduce(Integer::sum).getAsInt();
+        result += temp;
+        return result;
     }
 
-    public static void explosiveUp(int[] values, int maxValue, int temp) {
+    public static int explosiveUp(int[] values, int maxValue, int temp) {
+        int maxIndex = temp;
         while (++temp < values.length) {
             if (values[temp] <= maxValue) {
                 maxValue = Math.max(values[temp] - 1, 0);
@@ -104,5 +101,10 @@ public class Task0074_1 {
                 break;
             }
         }
+        int result = values[maxIndex];
+        values[maxIndex] = 0;
+        temp = Arrays.stream(values).reduce(Integer::sum).getAsInt();
+        result += temp;
+        return result;
     }
 }
