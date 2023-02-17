@@ -38,12 +38,16 @@ public class Task0074_1 {
 
             if (maxValue < values[0]) {
                 tempArray = values.clone();
-                results.add(explosiveUp(tempArray, tempArray[0] - 1, 0));
+                result = explosiveUp(tempArray, tempArray[0] - 1, 0);
+                result += Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
+                results.add(result);
             }
 
             if (maxValue < values[values.length - 1]) {
                 tempArray = values.clone();
-                results.add(explosiveDown(tempArray, tempArray[values.length - 1] - 1, tempArray.length - 1));
+                result = explosiveDown(tempArray, tempArray[values.length - 1] - 1, tempArray.length - 1);
+                result += Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
+                results.add(result);
             }
 
             for (int j = 1; j < values.length - 1; j++) {
@@ -52,10 +56,11 @@ public class Task0074_1 {
                     tempMaxValue = Math.max(0, tempArray[j] - 1);
                     result = explosiveDown(tempArray, tempMaxValue, j);
                     result += explosiveUp(tempArray, tempMaxValue, j);
+                    result += Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
                     results.add(result);
                 }
             }
-
+            System.out.println(results);
             System.out.println(Collections.min(results));
         }
     }
@@ -73,8 +78,6 @@ public class Task0074_1 {
         }
         int result = values[maxIndex];
         values[maxIndex] = 0;
-        temp = Arrays.stream(values).reduce(Integer::sum).getAsInt();
-        result += temp;
         return result;
     }
 
@@ -91,8 +94,6 @@ public class Task0074_1 {
         }
         int result = values[maxIndex];
         values[maxIndex] = 0;
-        temp = Arrays.stream(values).reduce(Integer::sum).getAsInt();
-        result += temp;
         return result;
     }
 }
