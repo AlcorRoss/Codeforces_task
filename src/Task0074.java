@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Task0074 {
     public static void main(String[] args) {
@@ -11,7 +10,8 @@ public class Task0074 {
             int[] values = new int[numberOfValues];
             int[] values1 = new int[numberOfValues];
             int[] values2 = new int[numberOfValues];
-            int maxIndex = 0, maxValue = 0, counter, temp, result1 = Integer.MAX_VALUE, result2 = Integer.MAX_VALUE;
+            int maxIndex = 0, maxValue = 0, counter, temp, result = 0;
+            List<Integer> results = new ArrayList<>();
 
             for (int j = 0; j < values.length; j++) {
                 values[j] = in.nextInt();
@@ -41,16 +41,22 @@ public class Task0074 {
 
             if (maxValue < values[0]) {
                 explosiveUp(values2, values2[0], 0);
-                result2 = values2[0];
+                result = values2[0];
                 values2[0] = 0;
                 temp = Arrays.stream(values2).reduce(Integer::sum).getAsInt();
-                result2 += temp;
-            } else if (maxValue < values[values.length - 1]) {
+                result += temp;
+                results.add(result);
+                result = 0;
+            }
+
+            if (maxValue < values[values.length - 1]) {
                 explosiveDown(values1, values1[values.length - 1], values1.length - 1);
-                result1 = values1[values.length - 1];
+                result = values1[values.length - 1];
                 values1[values.length - 1] = 0;
                 temp = Arrays.stream(values1).reduce(Integer::sum).getAsInt();
-                result1 += temp;
+                result += temp;
+                results.add(result);
+                result = 0;
             }
 
             counter = maxValue;
@@ -66,9 +72,8 @@ public class Task0074 {
 
             temp = Arrays.stream(values).reduce(Integer::sum).getAsInt();
             counter += temp;
-            counter = Math.min(counter, result1);
-            counter = Math.min(counter, result2);
-            System.out.println(counter);
+            results.add(counter);
+            System.out.println(Collections.min(results));
         }
     }
 
