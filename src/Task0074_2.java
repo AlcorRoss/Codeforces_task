@@ -67,7 +67,18 @@ public class Task0074_2 {
 
     public static int explosiveDown(int[] values, int maxValue, int temp) {
         int maxIndex = temp;
+        int tempValue = maxValue;
         int result = values[maxIndex];
+
+        for (int k = temp - 1; k >= 0; k--) {
+            if (tempValue == 0) break;
+            if (tempValue < values[k]) {
+                result += values[k] - tempValue;
+                values[k] -= values[k] - tempValue;
+            }
+            tempValue--;
+        }
+
         while (--temp >= 0) {
             if (values[temp] <= maxValue) {
                 maxValue = Math.max(values[temp] - 1, 0);
