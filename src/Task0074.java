@@ -9,7 +9,7 @@ public class Task0074 {
             int numberOfValues = in.nextInt();
             int[] values = new int[numberOfValues];
             int[] tempArray;
-            int maxIndex = 0, maxValue = 0, counter, temp, result;
+            int maxIndex = 0, maxValue = 0, temp, result, tempMaxValue;
             List<Integer> results = new ArrayList<>();
 
             for (int j = 0; j < values.length; j++) {
@@ -27,13 +27,13 @@ public class Task0074 {
 
             if (values.length == 2) {
                 if (values[0] == values[1]) {
-                    counter = values[0];
+                    result = values[0];
                     values[1] = values[1] - (values[0] - 1);
-                    counter += values[1];
+                    result += values[1];
                 } else {
-                    counter = Math.max(values[0], values[1]);
+                    result = Math.max(values[0], values[1]);
                 }
-                System.out.println(counter);
+                System.out.println(result);
                 continue;
             }
 
@@ -57,20 +57,27 @@ public class Task0074 {
                 results.add(result);
             }
 
-            counter = maxValue;
-            maxValue = Math.max(0, values[maxIndex] - 1);
-            temp = maxIndex;
+            for (int j = 1; j < values.length - 1; j++) {
+                if (values[j] == maxValue) {
+                    tempArray = values.clone();
+                    tempMaxValue = maxValue;
+                    result = tempMaxValue;
+                    tempMaxValue = Math.max(0, tempArray[maxIndex] - 1);
+                    temp = maxIndex;
 
-            explosiveDown(values, maxValue, temp);
+                    explosiveDown(tempArray, tempMaxValue, temp);
 
-            maxValue = Math.max(0, values[maxIndex] - 1);
-            values[maxIndex] = 0;
+                    tempMaxValue = Math.max(0, tempArray[maxIndex] - 1);
+                    tempArray[maxIndex] = 0;
 
-            explosiveUp(values, maxValue, temp);
+                    explosiveUp(tempArray, tempMaxValue, temp);
 
-            temp = Arrays.stream(values).reduce(Integer::sum).getAsInt();
-            counter += temp;
-            results.add(counter);
+                    temp = Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
+                    result += temp;
+                    results.add(result);
+                }
+            }
+
             System.out.println(Collections.min(results));
         }
     }
