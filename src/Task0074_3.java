@@ -61,6 +61,17 @@ public class Task0074_3 {
                 }
             }
 
+            for (int j = 1; j < values.length - 1; j++) {
+                if (values[j] == maxValue) {
+                    tempArray = values.clone();
+                    tempMaxValue = Math.max(0, tempArray[j] - 1);
+                    result = explosiveDown1(tempArray, tempMaxValue, j);
+                    result += explosiveUp1(tempArray, tempMaxValue, j);
+                    result += Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
+                    results.add(result);
+                }
+            }
+
             System.out.println(Collections.min(results));
         }
     }
@@ -115,6 +126,39 @@ public class Task0074_3 {
                 break;
             }
         }
+        values[maxIndex] = 0;
+        return result;
+    }
+
+    public static int explosiveDown1(int[] values, int maxValue, int temp) {
+        int maxIndex = temp;
+        int result = values[maxIndex];
+        while (--temp >= 0) {
+            if (values[temp] <= maxValue) {
+                maxValue = Math.max(values[temp] - 1, 0);
+                values[temp] = 0;
+            } else {
+                values[temp] -= maxValue;
+                break;
+            }
+        }
+        values[maxIndex] = 0;
+        return result;
+    }
+
+    public static int explosiveUp1(int[] values, int maxValue, int temp) {
+        int maxIndex = temp;
+        int result = values[maxIndex];
+        while (++temp < values.length) {
+            if (values[temp] <= maxValue) {
+                maxValue = Math.max(values[temp] - 1, 0);
+                values[temp] = 0;
+            } else {
+                values[temp] -= maxValue;
+                break;
+            }
+        }
+
         values[maxIndex] = 0;
         return result;
     }
