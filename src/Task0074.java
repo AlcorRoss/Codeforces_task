@@ -10,7 +10,7 @@ public class Task0074 {
             int[] values = new int[numberOfValues];
             int[] values1 = new int[numberOfValues];
             int[] values2 = new int[numberOfValues];
-            int maxIndex = 0, maxValue = 0, counter, temp, result = 0;
+            int maxIndex = 0, maxValue = 0, counter, temp, result;
             List<Integer> results = new ArrayList<>();
 
             for (int j = 0; j < values.length; j++) {
@@ -46,7 +46,6 @@ public class Task0074 {
                 temp = Arrays.stream(values2).reduce(Integer::sum).getAsInt();
                 result += temp;
                 results.add(result);
-                result = 0;
             }
 
             if (maxValue < values[values.length - 1]) {
@@ -56,7 +55,6 @@ public class Task0074 {
                 temp = Arrays.stream(values1).reduce(Integer::sum).getAsInt();
                 result += temp;
                 results.add(result);
-                result = 0;
             }
 
             counter = maxValue;
