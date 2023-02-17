@@ -18,6 +18,12 @@ public class Task0074 {
                     maxIndex = j;
                 }
             }
+
+            if (values.length == 1) {
+                System.out.println(values[0]);
+                continue;
+            }
+
             counter = maxValue;
             maxValue = Math.max(0, values[maxIndex] - 1);
             temp = maxIndex;
