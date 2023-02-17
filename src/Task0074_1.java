@@ -60,7 +60,7 @@ public class Task0074_1 {
                     results.add(result);
                 }
             }
-            System.out.println(results);
+
             System.out.println(Collections.min(results));
         }
     }
