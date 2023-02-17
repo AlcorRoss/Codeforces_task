@@ -24,6 +24,18 @@ public class Task0074 {
                 continue;
             }
 
+            if (values.length == 2) {
+                if (values[0] == values[1]) {
+                    counter = values[0];
+                    values[1] = values[1] - (values[0] - 1);
+                    counter += values[1];
+                } else {
+                    counter = Math.max(values[0], values[1]);
+                }
+                System.out.println(counter);
+                continue;
+            }
+
             counter = maxValue;
             maxValue = Math.max(0, values[maxIndex] - 1);
             temp = maxIndex;
