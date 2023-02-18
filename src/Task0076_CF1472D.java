@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Task0076_CF1472D {
@@ -9,12 +10,12 @@ public class Task0076_CF1472D {
         while (numberOfTests-- > 0) {
             int numberOfValues = in.nextInt();
             int counterBob = 0, counterAlice = 0;
-            int[] values = new int[numberOfValues];
+            Integer[] values = new Integer[numberOfValues];
 
             for (int i = 0; i < numberOfValues; i++) {
                 values[i] = in.nextInt();
             }
-            Arrays.sort(values);
+            Arrays.sort(values, Collections.reverseOrder());
 
             for (int i = 0; i < numberOfValues; i++) {
                 if (i % 2 == 0) {
