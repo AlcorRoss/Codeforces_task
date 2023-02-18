@@ -1,9 +1,8 @@
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+package OldTasks;
+
 import java.util.Scanner;
 
-public class Task0071 {
+public class Task0071_1 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int numberOfTests = in.nextInt();
@@ -22,8 +21,15 @@ public class Task0071 {
     }
 
     public static long calculateNextValue(long temp) {
-        String line = String.valueOf(temp);
-        List<Integer> tempList = Arrays.stream(line.split("")).map(Integer::valueOf).toList();
-        return temp + ((long) Collections.max(tempList) * Collections.min(tempList));
+        long temp2 = temp;
+        long min = 10, max = 0;
+
+        while (temp2 > 0) {
+            min = Math.min(min, temp2 % 10);
+            max = Math.max(max, temp2 % 10);
+            temp2 /= 10;
+        }
+        return temp + (min * max);
     }
 }
+

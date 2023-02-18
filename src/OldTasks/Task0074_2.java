@@ -1,6 +1,8 @@
+package OldTasks;
+
 import java.util.*;
 
-public class Task0074 {
+public class Task0074_2 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int numberOfTests = in.nextInt();
@@ -9,14 +11,13 @@ public class Task0074 {
             int numberOfValues = in.nextInt();
             int[] values = new int[numberOfValues];
             int[] tempArray;
-            int maxIndex = 0, maxValue = 0, temp, result, tempMaxValue;
+            int maxValue = 0, result, tempMaxValue;
             List<Integer> results = new ArrayList<>();
 
             for (int j = 0; j < values.length; j++) {
                 values[j] = in.nextInt();
                 if (values[j] > maxValue && j != 0 && j != values.length - 1) {
                     maxValue = values[j];
-                    maxIndex = j;
                 }
             }
 
@@ -39,41 +40,25 @@ public class Task0074 {
 
             if (maxValue < values[0]) {
                 tempArray = values.clone();
-                explosiveUp(tempArray, tempArray[0], 0);
-                result = tempArray[0];
-                tempArray[0] = 0;
-                temp = Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
-                result += temp;
+                result = explosiveUp(tempArray, tempArray[0] - 1, 0);
+                result += Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
                 results.add(result);
             }
 
             if (maxValue < values[values.length - 1]) {
                 tempArray = values.clone();
-                explosiveDown(tempArray, tempArray[values.length - 1], tempArray.length - 1);
-                result = tempArray[values.length - 1];
-                tempArray[values.length - 1] = 0;
-                temp = Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
-                result += temp;
+                result = explosiveDown(tempArray, tempArray[values.length - 1] - 1, tempArray.length - 1);
+                result += Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
                 results.add(result);
             }
 
             for (int j = 1; j < values.length - 1; j++) {
                 if (values[j] == maxValue) {
                     tempArray = values.clone();
-                    tempMaxValue = maxValue;
-                    result = tempMaxValue;
-                    tempMaxValue = Math.max(0, tempArray[maxIndex] - 1);
-                    temp = maxIndex;
-
-                    explosiveDown(tempArray, tempMaxValue, temp);
-
-                    tempMaxValue = Math.max(0, tempArray[maxIndex] - 1);
-                    tempArray[maxIndex] = 0;
-
-                    explosiveUp(tempArray, tempMaxValue, temp);
-
-                    temp = Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
-                    result += temp;
+                    tempMaxValue = Math.max(0, tempArray[j] - 1);
+                    result = explosiveDown(tempArray, tempMaxValue, j);
+                    result += explosiveUp(tempArray, tempMaxValue, j);
+                    result += Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
                     results.add(result);
                 }
             }
@@ -82,7 +67,20 @@ public class Task0074 {
         }
     }
 
-    public static void explosiveDown(int[] values, int maxValue, int temp) {
+    public static int explosiveDown(int[] values, int maxValue, int temp) {
+        int maxIndex = temp;
+        int tempValue = maxValue;
+        int result = values[maxIndex];
+
+        for (int k = temp - 1; k >= 0; k--) {
+            if (tempValue == 0) break;
+            if (tempValue < values[k]) {
+                result += values[k] - tempValue;
+                values[k] -= values[k] - tempValue;
+            }
+            tempValue--;
+        }
+
         while (--temp >= 0) {
             if (values[temp] <= maxValue) {
                 maxValue = Math.max(values[temp] - 1, 0);
@@ -92,9 +90,24 @@ public class Task0074 {
                 break;
             }
         }
+        values[maxIndex] = 0;
+        return result;
     }
 
-    public static void explosiveUp(int[] values, int maxValue, int temp) {
+    public static int explosiveUp(int[] values, int maxValue, int temp) {
+        int maxIndex = temp;
+        int tempValue = maxValue;
+        int result = values[maxIndex];
+
+        for (int k = temp + 1; k < values.length; k++) {
+            if (tempValue == 0) break;
+            if (tempValue < values[k]) {
+                result += values[k] - tempValue;
+                values[k] -= values[k] - tempValue;
+            }
+            tempValue--;
+        }
+
         while (++temp < values.length) {
             if (values[temp] <= maxValue) {
                 maxValue = Math.max(values[temp] - 1, 0);
@@ -104,5 +117,7 @@ public class Task0074 {
                 break;
             }
         }
+        values[maxIndex] = 0;
+        return result;
     }
 }
