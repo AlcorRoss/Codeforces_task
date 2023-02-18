@@ -9,11 +9,11 @@ public class Task0076_CF1472D {
 
         while (numberOfTests-- > 0) {
             int numberOfValues = in.nextInt();
-            int counterBob = 0, counterAlice = 0;
-            Integer[] values = new Integer[numberOfValues];
+            long counterBob = 0, counterAlice = 0;
+            Long[] values = new Long[numberOfValues];
 
             for (int i = 0; i < numberOfValues; i++) {
-                values[i] = in.nextInt();
+                values[i] = in.nextLong();
             }
             Arrays.sort(values, Collections.reverseOrder());
 
