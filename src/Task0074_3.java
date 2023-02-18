@@ -36,29 +36,25 @@ public class Task0074_3 {
                 continue;
             }
 
-            if (maxValue < values[0]) {
-                tempArray = values.clone();
-                result = explosiveUp(tempArray, tempArray[0] - 1, 0);
-                result += Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
-                results.add(result);
-            }
 
-            if (maxValue < values[values.length - 1]) {
-                tempArray = values.clone();
-                result = explosiveDown(tempArray, tempArray[values.length - 1] - 1, tempArray.length - 1);
-                result += Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
-                results.add(result);
-            }
+            tempArray = values.clone();
+            result = explosiveUp(tempArray, tempArray[0] - 1, 0);
+            result += Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
+            results.add(result);
+
+            tempArray = values.clone();
+            result = explosiveDown(tempArray, tempArray[values.length - 1] - 1, tempArray.length - 1);
+            result += Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
+            results.add(result);
+
 
             for (int j = 1; j < values.length - 1; j++) {
-                if (values[j] == maxValue) {
                     tempArray = values.clone();
                     tempMaxValue = Math.max(0, tempArray[j] - 1);
                     result = explosiveDown(tempArray, tempMaxValue, j);
                     result += explosiveUp(tempArray, tempMaxValue, j);
                     result += Arrays.stream(tempArray).reduce(Integer::sum).getAsInt();
                     results.add(result);
-                }
             }
 
             System.out.println(Collections.min(results));
