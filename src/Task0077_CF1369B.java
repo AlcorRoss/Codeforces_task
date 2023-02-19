@@ -6,17 +6,35 @@ public class Task0077_CF1369B {
         int numberOfTests = in.nextInt();
 
         while (numberOfTests-- > 0) {
-            int lineLength = in.nextInt();
-            String line = in.next();
+            boolean flag = false, flag1 = false;
+            in.nextInt();
+            StringBuilder line = new StringBuilder(in.next());
 
+            for (int i = line.length() - 1; i > 0; i--) {
+                if (line.charAt(i) == '0') flag = true;
+                if (line.charAt(i) == '1' && flag) line.replace(i, i + 1, "");
+            }
 
+            flag = false;
+            for (int i = 0; i < line.length(); i++) {
+                if (line.charAt(i) == '1') flag = true;
+                if (line.charAt(i) == '0' && !flag1) {
+                    flag1 = true;
+                    continue;
+                }
+                if (line.charAt(i) == '0' && flag && flag1) {
+                    line.replace(i, i + 1, "");
+                    i -= 1;
+                }
+            }
 
-        }
-    }
+            flag = false;
+            for (int i = line.length() - 1; i >= 0; i--) {
+                if (line.charAt(i) == '0') flag = true;
+                if (line.charAt(i) == '1' && flag) line.replace(i, i + 1, "");
+            }
 
-    public static void removeZero(String line) {
-        for (int i = line.length() - 1; i > 0; i--) {
-
+            System.out.println(line);
         }
     }
 }
@@ -35,7 +53,7 @@ public class Task0077_CF1369B {
 // 110001 →
 // 10001 →
 
-// 10001 → с начала. удаляем 0 после первой единицы, если следующий 0 и i!=длине строки
+// 10001 → с начала. Удаляем 0 после первой единицы, если следующий 0 и i!=длине строки
 // 1001 →
 // 101 →
 
