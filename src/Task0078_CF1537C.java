@@ -44,7 +44,10 @@ public class Task0078_CF1537C {
                 }
             }
 
-            System.out.println(values);
+            for (int i = 0; i < values.size(); i++) {
+                if (i != values.size() - 1) System.out.print(values.get(i) + " ");
+                else System.out.println(values.get(i));
+            }
         }
     }
 }
