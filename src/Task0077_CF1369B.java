@@ -12,7 +12,7 @@ public class Task0077_CF1369B {
 
             for (int i = 0; i < line.length(); i++) {
                 if (line.charAt(i) == '1' && firstOne == -1) firstOne = i;
-                else if (firstOne != -1) lastZero = i;
+                else if (line.charAt(i) == '0' && firstOne != -1) lastZero = i;
             }
 
             if (firstOne == -1 || lastZero == -1) System.out.println(line);
