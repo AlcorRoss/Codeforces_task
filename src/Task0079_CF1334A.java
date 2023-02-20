@@ -10,7 +10,7 @@ public class Task0079_CF1334A {
             int numberOfValues = in.nextInt();
             int plays, clears, temp1, temp2, tempPlays = 0, tempClears = 0;
 
-            while (numberOfValues-- > 0) {
+            for (int i = 0; i < numberOfValues; i++) {
                 plays = in.nextInt();
                 clears = in.nextInt();
                 temp1 = plays - tempPlays;
