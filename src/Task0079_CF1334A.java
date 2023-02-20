@@ -19,7 +19,6 @@ public class Task0079_CF1334A {
                 if (temp2 < 0 || temp2 > temp1) {
                     System.out.println("NO");
                     flag = false;
-                    break;
                 }
                 tempPlays = plays;
                 tempClears = clears;
