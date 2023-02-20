@@ -16,7 +16,7 @@ public class Task0079_CF1334A {
                 temp1 = plays - tempPlays;
                 temp2 = clears - tempClears;
 
-                if (temp2 < 0 || temp2 > temp1) {
+                if (temp2 < 0 || temp2 > temp1 && flag) {
                     System.out.println("NO");
                     flag = false;
                 }
