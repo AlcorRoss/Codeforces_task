@@ -9,20 +9,14 @@ public class Task0080_CF1409C {
             int arrayLength = in.nextInt();
             int firstValue = in.nextInt();
             int secondValue = in.nextInt();
-            int temp;
+            int temp, temp2=0;
 
             if (arrayLength == 2) {
                 System.out.println(firstValue + " " + secondValue);
             } else {
                 temp = Math.max(firstValue, secondValue) - Math.min(firstValue, secondValue);
-                for (int i = arrayLength - 2; i > 0; i--) {
-                    if (temp % i == 0) {
-                        temp = i;
-                        break;
-                    }
-                }
 
-                System.out.println(temp);
+
             }
         }
     }
