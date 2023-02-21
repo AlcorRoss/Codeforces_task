@@ -22,12 +22,11 @@ public class Task0081_CF1097B {
             temp /= 2;
             int finalTemp = temp;
             steps = Arrays.stream(steps).filter(value -> value <= finalTemp).toArray();
-            System.out.println(Arrays.toString(steps));
-            System.out.println(temp);
 
             for (int i = steps.length - 1; i >= 0; i--) {
                 if (steps[i] == temp || flag) {
                     System.out.println("YES");
+                    flag = true;
                     break;
                 }
                 int temp2 = steps[i];
