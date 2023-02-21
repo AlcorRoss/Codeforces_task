@@ -22,24 +22,30 @@ public class Task0080_CF1409C {
                     }
                 } else {
                     temp = Math.max(firstValue, secondValue) - Math.min(firstValue, secondValue);
-                    for (int i = 2; i < arrayLength - 2; i++) {
+                    for (int i = 2; i < arrayLength; i++) {
                         if (temp % i == 0) {
                             temp2 = i;
                             temp3 = temp / i;
                         }
                     }
-
-                    for (int i = 0; i < arrayLength; i++) {
-                        temp = arrayLength - temp2 - i;
-                        if ((firstValue - (temp * temp3)) > 0) {
-                            temp = firstValue - (temp * temp3);
-                            break;
+                    if (temp2 == 0 || temp3 == 0) {
+                        for (int i = 0; i < arrayLength; i++) {
+                            if (i == arrayLength - 1) System.out.println((firstValue + (arrayLength * i)));
+                            else System.out.print((firstValue + (arrayLength * i)) + " ");
                         }
-                    }
+                    } else {
+                        for (int i = 0; i < arrayLength; i++) {
+                            temp = arrayLength - temp3 - i;
+                            if ((firstValue - (temp * temp3)) > 0) {
+                                temp = firstValue - (temp * temp3);
+                                break;
+                            }
+                        }
 
-                    for (int i = 0; i < arrayLength; i++) {
-                        if (i == arrayLength - 1) System.out.println((temp + (temp3 * i)));
-                        else System.out.print((temp + (temp3 * i)) + " ");
+                        for (int i = 0; i < arrayLength; i++) {
+                            if (i == arrayLength - 1) System.out.println((temp + (temp3 * i)));
+                            else System.out.print((temp + (temp3 * i)) + " ");
+                        }
                     }
                 }
             }
