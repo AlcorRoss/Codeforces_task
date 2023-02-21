@@ -1,3 +1,5 @@
+package OldTasks;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -42,3 +44,4 @@ public class Task0081_CF1097B {
         }
     }
 }
+// НЕВЕРНО
