@@ -15,7 +15,6 @@ public class Task0082_CF4B {
             max[i] = in.nextInt();
             temp += max[i];
         }
-
         if (temp < sumTime) {
             System.out.println("NO");
         } else if (temp == sumTime) {
@@ -29,7 +28,7 @@ public class Task0082_CF4B {
                     temp -= temp2;
                     max[i] = min[i];
                 } else if (temp < temp2) {
-                    max[i] -= temp2 - temp;
+                    max[i] = min[i] + temp2 - temp;
                     flag = true;
                     break;
                 } else {
