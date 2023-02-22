@@ -12,7 +12,7 @@ public class Task0083_CF1406B {
             List<Integer> tempList2 = null;
             ArrayList<Integer> resultList = new ArrayList<>();
             boolean flag = false, flag2 = false, flag3 = false;
-            long result;
+            long result = 0;
 
             for (int i = 0; i < numberOfValues; i++) values.add(in.nextInt());
 
@@ -58,10 +58,9 @@ public class Task0083_CF1406B {
                         break;
                     }
                 }
-
+                result = tempList1.stream().reduce((acc, i) -> acc * i).get().longValue();
+                result = Math.max(result, tempList2.stream().reduce((acc, i) -> acc * i).get().longValue());
             }
-            result = tempList1.stream().reduce((acc, i) -> acc * i).get().longValue();
-            result = Math.max(result, tempList2.stream().reduce((acc, i) -> acc * i).get().longValue());
             result = Math.max(result, resultList.stream().reduce((acc, i) -> acc * i).get().longValue());
             System.out.println(result);
         }
