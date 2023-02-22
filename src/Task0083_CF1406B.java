@@ -29,9 +29,16 @@ public class Task0083_CF1406B {
             }
 
             if (temp % 2 != 0 && flag) {
+                for (int i = tempList.size() - 1; i >= 0; i--) {
+                    if (values.get(i) < 0) {
+                        temp = i;
+                        break;
+                    }
+                }
+
                 for (int i = values.size() - 6; i >= 0; i--) {
                     if (values.get(i) >= 0) {
-                        tempList.set(4, values.get(i));
+                        tempList.set(temp, values.get(i));
                         break;
                     }
                 }
