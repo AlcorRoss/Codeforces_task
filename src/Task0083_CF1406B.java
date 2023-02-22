@@ -17,7 +17,7 @@ public class Task0083_CF1406B {
             }
 
             if (values.size() == 5) {
-                long result = values.stream().reduce((acc, i) -> acc *= i).get().longValue();
+                long result = values.stream().reduce((acc, i) -> acc * i).get().longValue();
                 System.out.println(result);
                 continue;
             }
@@ -44,7 +44,7 @@ public class Task0083_CF1406B {
                 }
             }
 
-            System.out.println(tempList.stream().reduce((acc, i) -> acc *= i).get().longValue());
+            System.out.println(tempList.stream().reduce((acc, i) -> acc * i).get().longValue());
         }
     }
 }
