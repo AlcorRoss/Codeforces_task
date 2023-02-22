@@ -9,7 +9,7 @@ public class Task0083_CF1406B {
             int temp = 0;
             List<Integer> values = new ArrayList<>();
             List<Integer> resultList = new ArrayList<>();
-            boolean flag = true;
+            boolean flag = true, flag2 = false, flag3 = false;
 
             for (int i = 0; i < numberOfValues; i++) values.add(in.nextInt());
 
@@ -30,21 +30,24 @@ public class Task0083_CF1406B {
 
             if (temp % 2 != 0 && flag) {
                 for (int value : values) {
-                    if (value < 0) {
-                        flag = false;
+                    if (value < 0) flag2 = true;
+                    if (value > 0) flag3 = true;
+                    if (flag2 && flag3) break;
+                }
+
+                for (int i = 4; i >= 0; i--) {
+                    if (resultList.get(i) > 0 && flag2) {
+                        resultList.set(i, Collections.min(values));
+                        break;
+                    }
+                    if (resultList.get(i) < 0 && flag3) {
+                        resultList.set(i, Collections.min(values));
                         break;
                     }
                 }
 
-                if (resultList.get(4) > 0 && !flag) {
-                    resultList.set(4, Collections.min(values));
-                } else {
-                    //TODO
-                    //находим наименьший отрицательный в resultList и меняем на max в values;
-                }
+                System.out.println(resultList.stream().reduce((acc, i) -> acc * i).get().longValue());
             }
-
-            System.out.println(resultList.stream().reduce((acc, i) -> acc * i).get().longValue());
         }
     }
 }
