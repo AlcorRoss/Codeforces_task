@@ -46,7 +46,7 @@ public class Task0083_CF1406B {
                         break;
                     }
                     if (resultList.get(i) < 0 && flag3) {
-                        resultList.set(i, Collections.min(values));
+                        resultList.set(i, Collections.max(values));
                         break;
                     }
                 }
