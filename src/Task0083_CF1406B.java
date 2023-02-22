@@ -8,14 +8,16 @@ public class Task0083_CF1406B {
             int numberOfValues = in.nextInt();
             int temp = 0;
             List<Integer> values = new ArrayList<>();
-            List<Integer> resultList = new ArrayList<>();
+            List<Integer> tempList1 = null;
+            List<Integer> tempList2 = null;
+            ArrayList<Integer> resultList = new ArrayList<>();
             boolean flag = false, flag2 = false, flag3 = false;
+            long result;
 
             for (int i = 0; i < numberOfValues; i++) values.add(in.nextInt());
 
             if (values.size() == 5) {
-                long result = values.stream().reduce((acc, i) -> acc * i).get().longValue();
-                System.out.println(result);
+                System.out.println(values.stream().reduce((acc, i) -> acc * i).get().longValue());
                 continue;
             }
 
@@ -40,19 +42,28 @@ public class Task0083_CF1406B {
                     if (flag2 && flag3) break;
                 }
 
+                tempList1 = (ArrayList) resultList.clone();
+                tempList2 = (ArrayList) resultList.clone();
+
                 for (int i = 4; i >= 0; i--) {
-                    if (resultList.get(i) > 0 && flag2) {
-                        resultList.set(i, Collections.min(values));
-                        break;
-                    }
-                    if (resultList.get(i) < 0 && flag3) {
-                        resultList.set(i, Collections.max(values));
+                    if (tempList1.get(i) > 0 && flag2) {
+                        tempList1.set(i, Collections.min(values));
                         break;
                     }
                 }
-            }
 
-            System.out.println(resultList.stream().reduce((acc, i) -> acc * i).get().longValue());
+                for (int i = 4; i >= 0; i--) {
+                    if (tempList2.get(i) < 0 && flag3) {
+                        tempList2.set(i, Collections.max(values));
+                        break;
+                    }
+                }
+
+            }
+            result = tempList1.stream().reduce((acc, i) -> acc * i).get().longValue();
+            result = Math.max(result, tempList2.stream().reduce((acc, i) -> acc * i).get().longValue());
+            result = Math.max(result, resultList.stream().reduce((acc, i) -> acc * i).get().longValue());
+            System.out.println(result);
         }
     }
 }
