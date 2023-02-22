@@ -39,7 +39,8 @@ public class Task0083_CF1406B {
                 if (resultList.get(4) > 0 && !flag) {
                     resultList.set(4, Collections.min(values));
                 } else {
-
+                    //TODO
+                    //находим наименьший отрицательный в resultList и меняем на max в values;
                 }
             }
 
