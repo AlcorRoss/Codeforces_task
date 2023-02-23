@@ -19,6 +19,9 @@ public class Task0084_CF1454C {
 
             for (int value : valuesList) resultQuantity.merge(value, 1, Integer::sum);
 
+            resultQuantity.merge(valuesList.get(0), -1, Integer::sum);
+            resultQuantity.merge(valuesList.get(valuesList.size() - 1), -1, Integer::sum);
+
             int[] result = new int[resultQuantity.size()];
             int temp = 0;
             for (int value : resultQuantity.values()) {
@@ -26,12 +29,9 @@ public class Task0084_CF1454C {
                 temp++;
             }
 
-            result[0] -= 1;
-            result[result.length - 1] -= 1;
+            for (int i = 0; i < result.length; i++) result[i] += 1;
 
-            for (int i = 1; i < result.length - 1; i++) result[i] += 1;
-
-            temp = 0;
+            temp = Integer.MAX_VALUE;
             for (int value : result) temp = Math.min(temp, value);
 
             System.out.println(temp);
