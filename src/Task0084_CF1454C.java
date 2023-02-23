@@ -11,7 +11,7 @@ public class Task0084_CF1454C {
             List<Integer> valuesList = new ArrayList<>();
             Map<Integer, Integer> resultQuantity = new LinkedHashMap<>();
 
-            for (int i = 0; i < numberOfValues; i++) values[0] = in.nextInt();
+            for (int i = 0; i < numberOfValues; i++) values[i] = in.nextInt();
 
             valuesList.add(values[0]);
             for (int i = 1; i < values.length; i++)
