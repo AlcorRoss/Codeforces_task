@@ -18,9 +18,15 @@ public class Task0086_CF257A {
             System.out.println(0);
         } else {
             Arrays.sort(powerStrips, Collections.reverseOrder());
-            for (int i = 0; i < numberOfPowerSocket; i++) {
-                temp += powerStrips[i];
-                sum = (numberOfPowerSocket - (i + 1)) + temp;
+            for (int i = 0; i < powerStrips.length; i++) {
+                if ((i + 1) <= numberOfPowerSocket) {
+                    temp += powerStrips[i];
+                    sum = (numberOfPowerSocket - (i + 1)) + temp;
+                } else {
+                    temp += powerStrips[i] - 1;
+                    sum = temp;
+                }
+
                 if (sum >= numberOfDevices) {
                     System.out.println(i + 1);
                     flag = false;
@@ -31,3 +37,16 @@ public class Task0086_CF257A {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
