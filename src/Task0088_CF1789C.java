@@ -9,8 +9,8 @@ public class Task0088_CF1789C {
             int numberOfValues = in.nextInt();
             int numberOfOperations = in.nextInt();
             int counter = 0;
-            List<ArrayList<Integer>> listLists = new ArrayList<>();
-            ArrayList<Integer> mainList = new ArrayList<>();
+            List<List<Integer>> listLists = new ArrayList<>();
+            List<Integer> mainList = new ArrayList<>();
 
             for (int i = 0; i < numberOfValues; i++) {
                 mainList.add(in.nextInt());
@@ -20,7 +20,7 @@ public class Task0088_CF1789C {
             for (int i = 0; i < numberOfOperations; i++) {
                 int index = in.nextInt() - 1;
                 int newValue = in.nextInt();
-                ArrayList<Integer> tempList = new ArrayList<>(listLists.get(listLists.size() - 1));
+                List<Integer> tempList = new ArrayList<>(listLists.get(listLists.size() - 1));
                 tempList.set(index, newValue);
                 listLists.add(tempList);
             }
