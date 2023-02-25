@@ -6,13 +6,10 @@ public class Task0087_CF1789B {
         int numberOfTests = in.nextInt();
 
         while (numberOfTests-- > 0) {
-            int numberOfValues = in.nextInt();
-            int[] values = new int[numberOfValues];
+            in.nextInt();
+            String line = in.next();
+            char[] values = line.toCharArray();
             boolean flag1 = false, flag2 = false, flag3 = false, flag4;
-
-            for (int i = 0; i < values.length; i++) {
-                values[i] = in.nextInt();
-            }
 
             for (int i = 0; i < values.length - i; i++) {
                 flag4 = values[i] != values[values.length - 1 - i];
