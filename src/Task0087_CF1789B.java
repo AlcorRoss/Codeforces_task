@@ -26,7 +26,7 @@ public class Task0087_CF1789B {
                     continue;
                 }
 
-                if (flag4 && flag1 && flag2) {
+                if (flag4 && flag2) {
                     flag3 = true;
                     break;
                 }
