@@ -10,12 +10,11 @@ public class Task0088_CF1789C {
             int numberOfOperations = in.nextInt();
             int counter = 0;
             List<List<Integer>> listLists = new ArrayList<>();
-            List<Integer> mainList = new ArrayList<>();
 
+            listLists.add(new ArrayList<>());
             for (int i = 0; i < numberOfValues; i++) {
-                mainList.add(in.nextInt());
+                listLists.get(0).add(in.nextInt());
             }
-            listLists.add(mainList);
 
             for (int i = 0; i < numberOfOperations; i++) {
                 int index = in.nextInt() - 1;
