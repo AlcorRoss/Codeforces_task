@@ -20,7 +20,7 @@ public class Task0088_CF1789C {
             for (int i = 0; i < numberOfOperations; i++) {
                 int index = in.nextInt() - 1;
                 int newValue = in.nextInt();
-                ArrayList<Integer> tempList = (ArrayList) listLists.get(listLists.size() - 1).clone();
+                ArrayList<Integer> tempList = new ArrayList<>(listLists.get(listLists.size() - 1));
                 tempList.set(index, newValue);
                 listLists.add(tempList);
             }
