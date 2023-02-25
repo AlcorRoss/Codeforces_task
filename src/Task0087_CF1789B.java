@@ -29,8 +29,8 @@ public class Task0087_CF1789B {
                 }
             }
 
-            if (flag3) System.out.println("NO");
-            else System.out.println("YES");
+            if (flag3) System.out.println("No");
+            else System.out.println("Yes");
         }
     }
 }
