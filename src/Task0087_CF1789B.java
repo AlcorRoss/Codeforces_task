@@ -34,11 +34,3 @@ public class Task0087_CF1789B {
         }
     }
 }
-
-
-// 0 1 1 1 0 1 1
-// 0 - 1 flag1 = true if 0!=1
-// 1 - 1 flag2 = true if flag1 && 1==1
-// 1 - 0 flag3 = true if flag1 && flag2 && 1!=0 break;
-// if(flag3) sout"no"
-//else sout"yes"
