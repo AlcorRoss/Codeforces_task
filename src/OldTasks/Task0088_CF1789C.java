@@ -1,3 +1,5 @@
+package OldTasks;
+
 import java.util.*;
 
 public class Task0088_CF1789C {
