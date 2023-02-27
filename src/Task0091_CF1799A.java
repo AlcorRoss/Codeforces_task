@@ -11,7 +11,7 @@ public class Task0091_CF1799A {
             int numberOfSteps = in.nextInt();
             int[] field = new int[fieldSize];
             int[] steps = new int[numberOfSteps];
-            int temp = field.length - 1, preVal = -1;
+            int temp = field.length - 1, preVal = -1, counter = 0;
 
             Arrays.fill(field, -1);
             for (int i = 0; i < numberOfSteps; i++) steps[i] = in.nextInt();
@@ -24,16 +24,20 @@ public class Task0091_CF1799A {
             } else {
                 for (int i = 0; i < steps.length; i++) {
                     if (steps[i] != preVal) {
-                        field[temp] = i + 1;
+                        preVal = steps[i];
+                        counter++;
+                        field[temp] = counter;
                         temp--;
                         if (temp < 0) break;
+                    } else {
+                        preVal = steps[i];
+                        counter += 2;
+                        i++;
                     }
-                    preVal = steps[i];
                 }
                 fieldPrint(field);
             }
         }
-
     }
 
     public static void fieldPrint(int[] field) {
