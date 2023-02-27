@@ -1,5 +1,7 @@
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Task0091_CF1799A {
     public static void main(String[] args) {
@@ -11,7 +13,8 @@ public class Task0091_CF1799A {
             int numberOfSteps = in.nextInt();
             int[] field = new int[fieldSize];
             int[] steps = new int[numberOfSteps];
-            int temp = field.length - 1, preVal = -1, counter = 0;
+            Set<Integer> tempSet = new HashSet<>();
+            int temp = field.length - 1, counter = 0;
 
             Arrays.fill(field, -1);
             for (int i = 0; i < numberOfSteps; i++) steps[i] = in.nextInt();
@@ -22,18 +25,16 @@ public class Task0091_CF1799A {
                 field[field.length - 1] = 1;
                 fieldPrint(field);
             } else {
-                for (int i = 0; i < steps.length; i++) {
-                    if (steps[i] != preVal) {
-                        preVal = steps[i];
+                for (int step : steps) {
+                    if (!tempSet.contains(step)) {
                         counter++;
                         field[temp] = counter;
                         temp--;
                         if (temp < 0) break;
                     } else {
-                        preVal = steps[i];
-                        counter += 2;
-                        i++;
+                        counter++;
                     }
+                    tempSet.add(step);
                 }
                 fieldPrint(field);
             }
@@ -47,3 +48,9 @@ public class Task0091_CF1799A {
         }
     }
 }
+
+//4 5
+//5 9 9 5 7
+//1 2 3 4
+//5 1 2 3
+//
