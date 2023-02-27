@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Task0091_CF1799A {
@@ -13,7 +11,7 @@ public class Task0091_CF1799A {
             int numberOfSteps = in.nextInt();
             int[] field = new int[fieldSize];
             int[] steps = new int[numberOfSteps];
-            int temp = 0, counter = 2;
+            int temp = field.length - 1, preVal = -1;
 
             Arrays.fill(field, -1);
             for (int i = 0; i < numberOfSteps; i++) steps[i] = in.nextInt();
@@ -24,16 +22,13 @@ public class Task0091_CF1799A {
                 field[field.length - 1] = 1;
                 fieldPrint(field);
             } else {
-                List<Integer> result = new ArrayList<>();
-                result.add(1);
-                for (int i = 1; i < steps.length; i++) {
-                    if (steps[i] != steps[i - 1]) result.add(counter);
-                    counter++;
-                }
-                for (int i = field.length - 1; i >= 0; i--) {
-                    if (temp > result.size() - 1) break;
-                    field[i] = result.get(temp);
-                    temp++;
+                for (int i = 0; i < steps.length; i++) {
+                    if (steps[i] != preVal) {
+                        field[temp] = i + 1;
+                        temp--;
+                        if (temp < 0) break;
+                    }
+                    preVal = steps[i];
                 }
                 fieldPrint(field);
             }
