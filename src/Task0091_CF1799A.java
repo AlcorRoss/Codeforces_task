@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task0091_CF1799A {
@@ -12,12 +13,11 @@ public class Task0091_CF1799A {
             int[] steps = new int[numberOfSteps];
             int temp = field.length - 2;
 
+            Arrays.fill(field, -1);
             for (int i = 0; i < numberOfSteps; i++) steps[i] = in.nextInt();
 
-            if (steps.length == 0) {
-                System.out.println(-1 + " " + -1 + " " + -1 + " " + -1);
-            } else if (steps.length == 1) {
-                System.out.println(-1 + " " + -1 + " " + -1 + " " + 1);
+            if (steps.length < 2) {
+                fieldPrint(field);
             } else {
                 field[field.length - 1] = 1;
                 for (int i = 1; i < steps.length; i++) {
@@ -27,11 +27,15 @@ public class Task0091_CF1799A {
                         if (temp < 0) break;
                     }
                 }
-                for (int i = 0; i < field.length; i++) {
-                    if (i == field.length - 1) System.out.println(field[i]);
-                    else System.out.print(field[i] + " ");
-                }
+                fieldPrint(field);
             }
+        }
+    }
+
+    public static void fieldPrint(int[] field) {
+        for (int i = 0; i < field.length; i++) {
+            if (i == field.length - 1) System.out.println(field[i]);
+            else System.out.print(field[i] + " ");
         }
     }
 }
