@@ -16,7 +16,10 @@ public class Task0091_CF1799A {
             Arrays.fill(field, -1);
             for (int i = 0; i < numberOfSteps; i++) steps[i] = in.nextInt();
 
-            if (steps.length < 2) {
+            if (steps.length == 0) {
+                fieldPrint(field);
+            } else if (steps.length == 1) {
+                field[field.length - 1] = 1;
                 fieldPrint(field);
             } else {
                 field[field.length - 1] = 1;
