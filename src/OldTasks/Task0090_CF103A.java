@@ -1,3 +1,5 @@
+package OldTasks;
+
 import java.util.Scanner;
 
 public class Task0090_CF103A {
