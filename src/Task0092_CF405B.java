@@ -14,6 +14,7 @@ public class Task0092_CF405B {
                 temp++;
             } else if (c == 'R' && !flagR && !flagL) {
                 counter += temp;
+                temp=0;
                 flagR = true;
             } else if (c == 'L' && !flagR && !flagL) {
                 temp = 0;
