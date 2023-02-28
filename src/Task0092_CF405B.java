@@ -34,7 +34,7 @@ public class Task0092_CF405B {
                 flagR = false;
             }
         }
-        if (flagL) counter += temp;
+        if (flagL || !flagR) counter += temp;
         System.out.println(counter);
     }
 }
