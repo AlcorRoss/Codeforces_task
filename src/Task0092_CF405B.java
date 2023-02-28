@@ -18,12 +18,8 @@ public class Task0092_CF405B {
             } else if (c == 'L' && !flagR && !flagL) {
                 temp = 0;
                 flagL = true;
-            } else if (c == 'L' && flagL) {
-                temp = 0;
-            } else if (c == 'R' && flagR) {
-                temp = 0;
             } else if (c == 'R') {
-                counter += temp % 2;
+                counter += temp;
                 temp = 0;
                 flagL = false;
                 flagR = true;
