@@ -12,7 +12,7 @@ public class Task0095_CF1800A {
             String line = in.next().toLowerCase();
             char[] chars = line.toCharArray();
             StringBuilder st = new StringBuilder();
-            char temp = 'a';
+            char temp = 'A';
 
             for (char c : chars) {
                 if (c != temp) st.append(c);
