@@ -1,3 +1,5 @@
+package OldTasks;
+
 import java.util.Collections;
 import java.util.Scanner;
 import java.util.TreeMap;
