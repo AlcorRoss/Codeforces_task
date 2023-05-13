@@ -3,7 +3,7 @@ package OldTasks;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Task0165_CF1473A {
+public class Task0166_CF1473A {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int numberOfTests = in.nextInt();
