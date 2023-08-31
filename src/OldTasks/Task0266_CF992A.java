@@ -1,3 +1,5 @@
+package OldTasks;
+
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
